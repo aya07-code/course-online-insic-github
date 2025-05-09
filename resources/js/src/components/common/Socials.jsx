@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 
 import { socialMediaLinks } from "../../data/socialLinks";
 import React from "react";

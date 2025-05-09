@@ -260,12 +260,6 @@ export default function CourseCheckOut() {
 
                   <div className="mt-30">
                     <div className="form-radio d-flex items-center">
-                      <div className="radio">
-                        <input type="radio" name="radio" />
-                        <div className="radio__mark">
-                          <div className="radio__icon"></div>
-                        </div>
-                      </div>
                       <h5 className="ml-15 text-15 lh-1 fw-500 text-dark-1">
                         Direct bank transfer
                       </h5>
@@ -276,45 +270,12 @@ export default function CourseCheckOut() {
                       will not be shipped until the funds have cleared in our
                       account.
                     </p>
-                  </div>
-
-                  <div className="mt-30">
-                    <div className="form-radio d-flex items-center">
-                      <div className="radio">
-                        <input type="radio" name="radio" />
-                        <div className="radio__mark">
-                          <div className="radio__icon"></div>
+                    <div className="row justify-center pt-20 lg:pt-40">
+                        <div className="col-auto">
+                          <Link to="#" className="button -md -outline-purple-1 text-purple-1">
+                          Payment
+                          </Link>
                         </div>
-                      </div>
-                      <h5 className="ml-15 text-15 lh-1 text-dark-1">
-                        Check payments
-                      </h5>
-                    </div>
-                  </div>
-
-                  <div className="mt-30">
-                    <div className="form-radio d-flex items-center">
-                      <div className="radio">
-                        <input type="radio" name="radio" />
-                        <div className="radio__mark">
-                          <div className="radio__icon"></div>
-                        </div>
-                      </div>
-                      <h5 className="ml-15 text-15 lh-1 text-dark-1">
-                        Cash on delivery
-                      </h5>
-                    </div>
-                  </div>
-
-                  <div className="mt-30">
-                    <div className="form-radio d-flex items-center">
-                      <div className="radio">
-                        <input type="radio" name="radio" defaultChecked />
-                        <div className="radio__mark">
-                          <div className="radio__icon"></div>
-                        </div>
-                      </div>
-                      <h5 className="ml-15 text-15 lh-1 text-dark-1">PayPal</h5>
                     </div>
                   </div>
                 </div>

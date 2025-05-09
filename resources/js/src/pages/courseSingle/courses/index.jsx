@@ -11,9 +11,9 @@ import MetaComponent from "@/components/common/MetaComponent";
 
 const metadata = {
   title:
-    "Couese-single-1 || Educrat - Professional LMS Online Education Course ReactJS Template",
+    "Couese-single-1 || Insic",
   description:
-    "Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.",
+    "Elevate your e-learning content with Insic.",
 };
 
 export default function CourseSinglePage1() {

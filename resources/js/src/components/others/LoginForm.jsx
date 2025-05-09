@@ -6,7 +6,7 @@ export default function LoginForm() {
     e.preventDefault();
   };
   return (
-    <div className="form-page__content lg:py-50">
+    <div className="form-page__content lg:py-50" style={{ marginTop: "100px" }}>
       <div className="container">
         <div className="row justify-center items-center">
           <div className="col-xl-6 col-lg-8">
@@ -45,29 +45,12 @@ export default function LoginForm() {
                     type="submit"
                     name="submit"
                     id="submit"
-                    className="button -md -green-1 text-dark-1 fw-500 w-1/1"
+                    className="button -md bg-purple-1 text-white fw-500 w-1/1"
                   >
                     Login
                   </button>
                 </div>
               </form>
-
-              <div className="lh-12 text-dark-1 fw-500 text-center mt-20">
-                Or sign in using
-              </div>
-
-              <div className="d-flex x-gap-20 items-center justify-between pt-20">
-                <div>
-                  <button className="button -sm px-24 py-20 -outline-blue-3 text-blue-3 text-14">
-                    Log In via Facebook
-                  </button>
-                </div>
-                <div>
-                  <button className="button -sm px-24 py-20 -outline-red-3 text-red-3 text-14">
-                    Log In via Google+
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>

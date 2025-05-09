@@ -38,18 +38,6 @@ export default function Reviews() {
                     <div className="comments__text mt-10">
                       <p>{elm.comment}</p>
                     </div>
-
-                    <div className="comments__helpful mt-20">
-                      <span className="text-13 text-purple-1">
-                        Was this review helpful?
-                      </span>
-                      <button className="button text-13 -sm -purple-1 text-white">
-                        Yes
-                      </button>
-                      <button className="button text-13 -sm -light-7 text-purple-1">
-                        No
-                      </button>
-                    </div>
                   </div>
                 </div>
               </li>

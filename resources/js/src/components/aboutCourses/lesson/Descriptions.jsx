@@ -25,49 +25,6 @@ export default function Descriptions() {
         learn about low-fidelity wireframes and how to make use of existing UI
         design kits.
       </p>
-      <button className="text-purple-1 fw-500 underline mt-30">
-        Show more
-      </button>
-
-      <div className="mt-60">
-        <h4 className="text-20 mb-30">What you'll learn</h4>
-        <div className="row x-gap-100 justfiy-between">
-          <div className="col-md-6">
-            <div className="y-gap-20">
-              {learnList.slice(0, 6).map((elm, i) => (
-                <div key={i} className="d-flex items-center">
-                  <div className="d-flex justify-center items-center border-light rounded-full size-20 mr-10">
-                    <i className="icon-check text-6"></i>
-                  </div>
-                  <p>{elm}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="col-md-6">
-            <div className="y-gap-20">
-              {learnList.slice(6).map((elm, i) => (
-                <div key={i} className="d-flex items-center">
-                  <div className="d-flex justify-center items-center border-light rounded-full size-20 mr-10">
-                    <i className="icon-check text-6"></i>
-                  </div>
-                  <p>{elm}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-60">
-        <h4 className="text-20">Requirements</h4>
-        <ul className="ul-list y-gap-15 pt-30">
-          {requirements.map((elm, i) => (
-            <li key={i}>{elm}</li>
-          ))}
-        </ul>
-      </div>
     </div>
   );
 }

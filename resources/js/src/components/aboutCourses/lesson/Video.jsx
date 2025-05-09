@@ -8,7 +8,7 @@ export default function Video() {
       <div className="relative pt-40">
         <img
           className="w-1/1 rounded-16"
-          src="/assets/img/lesson-single/1.png"
+          src="/assets/img/coursesCards/card1.jpg"
           alt="image"
         />
         <div className="absolute-full-center d-flex justify-center items-center">

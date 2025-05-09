@@ -5,15 +5,12 @@ import CourseContent from "./CourseContent";
 import Star from "../common/Star";
 import { coursesData } from "@/data/courses";
 import React, { useState, useEffect } from "react";
-
-import ModalVideo from "react-modal-video";
 import ModalVideoComponent from "../common/ModalVideo";
 
 import { useContextElement } from "@/context/Context";
 const menuItems = [
   { id: 1, href: "#overview", text: "Overview", isActive: true },
   { id: 2, href: "#course-content", text: "Course Content", isActive: false },
-  { id: 3, href: "#instructors", text: "Instructors", isActive: false },
   { id: 4, href: "#reviews", text: "Reviews", isActive: false },
 ];
 export default function CourseDetailsSix({ id }) {
@@ -82,13 +79,6 @@ export default function CourseDetailsSix({ id }) {
                   </div>
 
                   <div className="d-flex items-center text-dark-3">
-                    <div className="icon icon-person-3 text-13"></div>
-                    <div className="text-14 ml-8">
-                      853 enrolled on this course
-                    </div>
-                  </div>
-
-                  <div className="d-flex items-center text-dark-3">
                     <div className="icon icon-wall-clock text-13"></div>
                     <div className="text-14 ml-8">Last updated 11/2021</div>
                   </div>
@@ -129,14 +119,6 @@ export default function CourseDetailsSix({ id }) {
                       <div className="ml-10">Duration</div>
                     </div>
                     <div className="text-white">13 Hours</div>
-                  </div>
-
-                  <div className="d-flex justify-between py-8 border-bottom-light-2">
-                    <div className="d-flex items-center text-white">
-                      <div className="icon-bar-chart-2"></div>
-                      <div className="ml-10">Skill level</div>
-                    </div>
-                    <div className="text-white">Beginner</div>
                   </div>
 
                   <div className="d-flex justify-between py-8 border-bottom-light-2">
@@ -296,14 +278,6 @@ export default function CourseDetailsSix({ id }) {
                     } `}
                   >
                     <CourseContent />
-                  </div>
-
-                  <div
-                    className={`tabs__pane -tab-item-3 ${
-                      activeTab == 3 ? "is-active" : ""
-                    } `}
-                  >
-                    <Instractor />
                   </div>
 
                   <div

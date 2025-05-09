@@ -53,14 +53,14 @@ export default function HeroTwo() {
                   <div className="mainSlider__bg">
                     <div
                       className="bg-image js-lazy customedBg"
+                      style={{ backgroundImage: "url(/assets/img/home-2/cta/bgg.jpg)" }}
                       style={{
-                        // backgroundImage: "url(/assets/img/home-2/cta/bgg.jpg)",
                         backgroundImage: `url(${item.bgImage})`,
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center center",
-                        width: "100% !important",
-                        height: "100% !important",
+                        width: "100%",
+                        height: "100%",
                       }}
                     ></div>
                   </div>

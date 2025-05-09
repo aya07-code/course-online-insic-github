@@ -7,9 +7,9 @@ import MetaComponent from "@/components/common/MetaComponent";
 
 const metadata = {
   title:
-    "Dashboard-settings || Educrat - Professional LMS Online Education Course ReactJS Template",
+    "Dashboard-settings || Insic",
   description:
-    "Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.",
+    "Elevate your e-learning content with Insic.",
 };
 export default function DshbSettingsPage() {
   return (

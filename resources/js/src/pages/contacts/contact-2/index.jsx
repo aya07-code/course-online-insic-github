@@ -1,4 +1,3 @@
-import Faq from "@/components/common/Faq";
 import Preloader from "@/components/common/Preloader";
 
 import ContactTwo from "@/components/contacts/ContactTwo";
@@ -10,9 +9,9 @@ import MetaComponent from "@/components/common/MetaComponent";
 
 const metadata = {
   title:
-    "Contact-2 || Educrat - Professional LMS Online Education Course ReactJS Template",
+    "Contact-2 || Insic",
   description:
-    "Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.",
+    "Elevate your e-learning content with Insic.",
 };
 
 export default function ContactPage2() {
@@ -20,12 +19,9 @@ export default function ContactPage2() {
     <div className="main-content  ">
       <MetaComponent meta={metadata} />
       <Preloader />
-
       <Header />
       <div className="content-wrapper js-content-wrapper overflow-hidden">
         <ContactTwo />
-        <Faq />
-
         <FooterOne />
       </div>
     </div>

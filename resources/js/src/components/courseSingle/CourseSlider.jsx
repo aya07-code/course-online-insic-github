@@ -18,10 +18,6 @@ export default function CourseSlider() {
           <div className="col-auto">
             <div className="sectionTitle ">
               <h2 className="sectionTitle__title ">You May Like</h2>
-
-              <p className="sectionTitle__text ">
-                10,000+ unique online course list designs
-              </p>
             </div>
           </div>
         </div>
@@ -115,16 +111,6 @@ export default function CourseSlider() {
                               <div className="text-14 lh-1">{`${Math.floor(
                                 elm.duration / 60,
                               )}h ${Math.floor(elm.duration % 60)}m`}</div>
-                            </div>
-
-                            <div className="d-flex items-center">
-                              <div className="mr-8">
-                                <img
-                                  src="/assets/img/coursesCards/icons/3.svg"
-                                  alt="icon"
-                                />
-                              </div>
-                              <div className="text-14 lh-1">{elm.level}</div>
                             </div>
                           </div>
 

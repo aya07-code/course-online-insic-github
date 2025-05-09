@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function NotFound() {
   return (
@@ -23,9 +24,9 @@ export default function NotFound() {
                 The page you're looking for isn't available. Try to search again
                 <br /> or use the go to.
               </div>
-              <button className="button -md -purple-1 text-white mt-20">
+              <Link to="/home-2" className="button -md -purple-1 text-white mt-20">
                 Go Back To Homepage
-              </button>
+              </Link>
             </div>
           </div>
         </div>

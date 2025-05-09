@@ -279,18 +279,6 @@ export default function CourseListFive() {
                         </div>
                       </div>
                     </div>
-
-                    <div className="col-auto">
-                      <div
-                        className="accordion__button w-unset"
-                        onClick={() => setFilterOpen((pre) => !pre)}
-                      >
-                        <button className="button h-50 px-30 -light-7 text-purple-1">
-                          <i className="icon-filter mr-10"></i>
-                          Filter
-                        </button>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

@@ -56,25 +56,17 @@ export default function Menu({ allClasses, headerPosition }) {
               >
                 Home
               </Link>
-              {/* <ul className="subnav">
-                <li className="menu__backButton js-nav-list-back">
-                  <Link to="#">
-                    <i className="icon-chevron-left text-13 mr-10"></i> Home
-                  </Link>
-                </li>
-                {menuList[0]?.links?.map((elm, i) => (
-                  <li
-                    key={i}
-                    className={
-                      pathname.split("/")[1] === elm.href.split("/")[1]
-                        ? "activeMenu"
-                        : "inActiveMenu"
-                    }
-                  >
-                    <Link to={elm.href}>{elm.label}</Link>
-                  </li>
-                ))}
-              </ul> */}
+            </li>
+
+            {/* About Section */}
+            <li className="menu-item-has-children">
+              <Link
+                data-barba
+                to="/about-1"
+                className={menuItem === "About" ? "activeMenu " : ""}
+              >
+                About
+              </Link>
             </li>
 
             {/* Courses Section */}

@@ -19,12 +19,6 @@ export default function LessonItems({ rightPosition }) {
         } `}
       >
         <div className="px-30 sm:px-20">
-          <form onSubmit={handleSubmit} className="lesson-sidebar-search">
-            <input type="text" required placeholder="Search" />
-            <button className="" type="submit">
-              <i className="icon-search text-20"></i>
-            </button>
-          </form>
 
           <div className="accordion -block-2 text-left js-accordion mt-30">
             {lessonItems.map((item, index) => (

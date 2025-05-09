@@ -20,9 +20,9 @@ import MetaComponent from "@/components/common/MetaComponent";
 
 const metadata = {
   title:
-    "Home-3 || Educrat - Professional LMS Online Education Course ReactJS Template",
+    "Home-3 || Insic",
   description:
-    "Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.",
+    "Elevate your e-learning content with Insic.",
 };
 export default function HomePage3() {
   return (

@@ -10,22 +10,18 @@ import MetaComponent from "@/components/common/MetaComponent";
 
 const metadata = {
   title:
-    "Course-checkout || Educrat - Professional LMS Online Education Course ReactJS Template",
+    "Course-checkout || Insic",
   description:
-    "Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.",
+    "Elevate your e-learning content with Insic.",
 };
 export default function CourseCheckoutPage() {
   return (
     <div className="main-content  ">
       <MetaComponent meta={metadata} />
       <Preloader />
-
       <Header />
-      <div className="content-wrapper js-content-wrapper overflow-hidden">
-        <PageLinks />
-
+      <div className="content-wrapper js-content-wrapper overflow-hidden" style={{ paddingTop: "80px" }}>
         <CourseCheckOut />
-
         <FooterOne />
       </div>
     </div>

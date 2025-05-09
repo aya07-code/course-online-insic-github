@@ -1,5 +1,4 @@
 import gsap from "gsap";
-
 import React, { useEffect } from "react";
 
 export default function AuthImageMove() {
@@ -38,13 +37,13 @@ export default function AuthImageMove() {
   }, []);
   return (
     <div className="form-page__img bg-dark-1">
-      <div className="form-page-composition">
+      <div className="form-page-composition" style={{ marginTop: "320px" }}>
         <div className="-bg">
           <img
             style={{ width: "100%" }}
             data-move="30"
             className="js-mouse-move"
-            src="/assets/img/login/bg.jpg"
+            src="/assets/img/login/bg.png"
             alt="bg"
           />
         </div>
@@ -53,7 +52,7 @@ export default function AuthImageMove() {
             style={{ width: "100%" }}
             data-move="20"
             className="js-mouse-move"
-            src="/assets/img/home-9/hero/bg.jpg"
+            src="/assets/img/home-9/hero/bg.png"
             alt="image"
           />
         </div>

@@ -6,7 +6,7 @@ export default function ContactTwo() {
   };
   return (
     <>
-      <section className="page-header -type-4 bg-beige-1">
+      <section className="page-header -type-4 bg-beige-1" style={{ marginTop: "-50px" }}>
         <div className="container">
           <div className="page-header__content">
             <div className="row">
@@ -27,7 +27,7 @@ export default function ContactTwo() {
         </div>
       </section>
 
-      <section className="layout-pt-md layout-pb-lg">
+      <section className="layout-pt-md layout-pb-lg" >
         <div className="container">
           <div className="row y-gap-50 justify-between">
             <div className="col-xl-5 col-lg-6">
