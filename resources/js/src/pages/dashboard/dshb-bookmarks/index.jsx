@@ -1,6 +1,5 @@
 import Preloader from "@/components/common/Preloader";
 import BookMarks from "@/components/dashboard/BookMarks";
-import DashboardOne from "@/components/dashboard/DashboardOne";
 import Sidebar from "@/components/dashboard/Sidebar";
 import HeaderDashboard from "@/components/layout/headers/HeaderDashboard";
 import React from "react";

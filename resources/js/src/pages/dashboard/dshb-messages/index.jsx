@@ -1,5 +1,4 @@
 import Preloader from "@/components/common/Preloader";
-import DashboardOne from "@/components/dashboard/DashboardOne";
 import Message from "@/components/dashboard/Message";
 import Sidebar from "@/components/dashboard/Sidebar";
 import HeaderDashboard from "@/components/layout/headers/HeaderDashboard";

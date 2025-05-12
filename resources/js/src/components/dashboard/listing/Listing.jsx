@@ -1,8 +1,5 @@
 import React from "react";
-import FooterNine from "../../layout/footers/FooterNine";
 import Media from "./Media";
-import Curriculum from "./Curriculum";
-
 export default function Listing() {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +43,7 @@ export default function Listing() {
 
                   <div className="col-12">
                     <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                      Short Description*
+                      Description*
                     </label>
 
                     <textarea
@@ -55,67 +52,34 @@ export default function Listing() {
                       rows="7"
                     ></textarea>
                   </div>
-
-                  <div className="col-12">
+                  <div className="form-upload col-12">
                     <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                      Course Description*
+                    PDF URL*
                     </label>
-
-                    <textarea
-                      required
-                      placeholder="Description"
-                      rows="7"
-                    ></textarea>
+                    <div className="form-upload__wrap">
+                      <input required type="text" name="name" placeholder={"Video-1.mp3"}/>
+                      <button className="button -dark-3 text-white">
+                        <label style={{ cursor: "pointer" }} htmlFor="imageUpload2">
+                        Upload PDF*
+                        </label>
+                        <input required id="imageUpload2" type="file" accept="application/pdf" style={{ display: "none" }}/>
+                      </button>
+                    </div>
                   </div>
-
-                  <div className="col-md-6">
+                  <div className="form-upload col-12">
                     <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                      What will students learn in your course?*
+                      Video URL*
                     </label>
-
-                    <textarea
-                      required
-                      placeholder="Description"
-                      rows="7"
-                    ></textarea>
+                    <div className="form-upload__wrap">
+                      <input required type="text" name="name" placeholder={"Video-1.mp3"}/>
+                      <button className="button -dark-3 text-white">
+                        <label style={{ cursor: "pointer" }} htmlFor="imageUpload2">
+                        Upload Video*
+                        </label>
+                        <input required id="imageUpload2" type="file" accept="video/*" style={{ display: "none" }}/>
+                      </button>
+                    </div>
                   </div>
-
-                  <div className="col-md-6">
-                    <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                      Requirements*
-                    </label>
-
-                    <textarea
-                      required
-                      placeholder="Description"
-                      rows="7"
-                    ></textarea>
-                  </div>
-
-                  <div className="col-md-6">
-                    <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                      Course Level*
-                    </label>
-
-                    <input required type="text" placeholder="Select" />
-                  </div>
-
-                  <div className="col-md-6">
-                    <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                      Audio Language*
-                    </label>
-
-                    <input required type="text" placeholder="Select" />
-                  </div>
-
-                  <div className="col-md-6">
-                    <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                      Close Caption*
-                    </label>
-
-                    <input required type="text" placeholder="Select" />
-                  </div>
-
                   <div className="col-md-6">
                     <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                       Course Category*
@@ -128,35 +92,15 @@ export default function Listing() {
                 <div className="row y-gap-20 justify-between pt-15">
                   <div className="col-auto">
                     <button className="button -md -outline-purple-1 text-purple-1">
-                      Prev
-                    </button>
-                  </div>
-
-                  <div className="col-auto">
-                    <button className="button -md -purple-1 text-white">
-                      Next
+                      create
                     </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div className="col-12">
-            <div className="rounded-16 bg-white -dark-bg-dark-1 shadow-4 h-100">
-              <div className="d-flex items-center py-20 px-30 border-bottom-light">
-                <h2 className="text-17 lh-1 fw-500">Curriculum</h2>
-              </div>
-
-              <Curriculum />
-            </div>
-          </div>
-
-          <Media />
         </div>
       </div>
-
-      <FooterNine />
     </div>
   );
 }

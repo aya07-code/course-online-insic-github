@@ -1,6 +1,5 @@
 import { messageList } from "@/data/dashboard";
 import React from "react";
-import FooterNine from "../layout/footers/FooterNine";
 
 export default function Message() {
   return (
@@ -19,7 +18,7 @@ export default function Message() {
           <div className="col-xl-4">
             <div className="rounded-16 bg-white -dark-bg-dark-1 shadow-4 h-100">
               <div className="d-flex items-center py-20 px-30 border-bottom-light">
-                <h2 className="text-17 lh-1 fw-500">Basic Information</h2>
+                <h2 className="text-17 lh-1 fw-500">Messages</h2>
               </div>
 
               <div className="py-30 px-30">
@@ -72,16 +71,8 @@ export default function Message() {
                   </div>
                   <div className="ml-10">
                     <div className="lh-11 fw-500 text-dark-1">Arlene McCoy</div>
-                    <div className="text-14 lh-11 mt-5">Active</div>
                   </div>
                 </div>
-
-                <a
-                  href="#"
-                  className="text-14 lh-11 fw-500 text-orange-1 underline"
-                >
-                  Delete Conversation
-                </a>
               </div>
 
               <div className="py-40 px-40">
@@ -110,7 +101,6 @@ export default function Message() {
 
                   <div className="col-xl-7 offset-xl-5 col-lg-10 offset-lg-2">
                     <div className="d-flex items-center justify-end">
-                      <div className="text-14 lh-11 mr-10">35 mins</div>
                       <div className="lh-11 fw-500 text-dark-1 mr-10">You</div>
                       <div className="shrink-0">
                         <img
@@ -140,7 +130,6 @@ export default function Message() {
                       <div className="lh-11 fw-500 text-dark-1 ml-10">
                         Cameron Williamson
                       </div>
-                      <div className="text-14 lh-11 ml-10">35 mins</div>
                     </div>
                     <div className="d-inline-block mt-15">
                       <div className="py-20 px-30 bg-light-3 rounded-8">
@@ -172,8 +161,6 @@ export default function Message() {
           </div>
         </div>
       </div>
-
-      <FooterNine />
     </div>
   );
 }

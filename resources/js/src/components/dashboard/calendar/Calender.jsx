@@ -1,5 +1,4 @@
 import React from "react";
-
 import FooterNine from "@/components/layout/footers/FooterNine";
 import EventKeys from "./EventKeys";
 import MonthlyCalender from "./MonthlyViewCalender";
@@ -12,7 +11,6 @@ export default function Calender() {
         <div className="row pb-50 mb-10">
           <div className="col-auto">
             <h1 className="text-30 lh-12 fw-700">Calendar</h1>
-            <PageLinksTwo />
           </div>
         </div>
 

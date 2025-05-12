@@ -193,13 +193,10 @@ export default function Media() {
                       </button>
                     </div>
                   </div>
-
-                  <p className="mt-10">
-                    {
-                      "Enter a valid video URL. Students who watch a well-made promo video are 5X more likely to enroll in your course."
-                    }
-                  </p>
                 </div>
+
+
+
               </form>
             </div>
           </div>

@@ -3,7 +3,6 @@ import { accordionItems } from "@/data/message";
 export default function Messages({ setMessageOpen, messageOpen }) {
   const [currentTab, setCurrentTab] = useState("message");
   const [openMessage, setOpenMessage] = useState(0);
-  const [contactTabOpen, setContactTabOpen] = useState(1);
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -41,53 +40,11 @@ export default function Messages({ setMessageOpen, messageOpen }) {
                 <i className="icon-chevron-left text-11 text-purple-1 mr-10"></i>
                 Messages
               </button>
-
-              <button
-                data-sidebar-menu-button="settings"
-                onClick={() => setCurrentTab("message")}
-                data-sidebar-menu-target="messages"
-                className={`d-flex items-center text-17 text-dark-1 fw-500 ${
-                  currentTab == "settings" ? "-is-button-active" : ""
-                }`}
-              >
-                <i className="icon-chevron-left text-11 text-purple-1 mr-10"></i>
-                Settings
-              </button>
-
-              <button
-                data-sidebar-menu-button="contacts"
-                onClick={() => setCurrentTab("message")}
-                data-sidebar-menu-target="messages"
-                className={`d-flex items-center text-17 text-dark-1 fw-500 ${
-                  currentTab == "contacts" ? "-is-button-active" : ""
-                }`}
-              >
-                <i className="icon-chevron-left text-11 text-purple-1 mr-10"></i>
-                Contacts
-              </button>
             </div>
           </div>
 
           <div className="col-auto">
             <div className="row x-gap-10">
-              <div className="col-auto">
-                <button
-                  data-sidebar-menu-target="settings"
-                  onClick={() => setCurrentTab("settings")}
-                  className="button -purple-3 text-purple-1 size-40 d-flex items-center justify-center rounded-full"
-                >
-                  <i className="icon-setting text-16"></i>
-                </button>
-              </div>
-              <div className="col-auto">
-                <button
-                  data-sidebar-menu-target="contacts"
-                  onClick={() => setCurrentTab("contacts")}
-                  className="button -purple-3 text-purple-1 size-40 d-flex items-center justify-center rounded-full"
-                >
-                  <i className="icon-friend text-16"></i>
-                </button>
-              </div>
               <div className="col-auto">
                 <button
                   data-el-toggle=".js-msg-toggle"
@@ -99,6 +56,8 @@ export default function Messages({ setMessageOpen, messageOpen }) {
               </div>
             </div>
           </div>
+
+
         </div>
         <div className="relative js-menu-switch">
           <div
@@ -107,20 +66,6 @@ export default function Messages({ setMessageOpen, messageOpen }) {
               currentTab == "message" ? "-sidebar-menu-opened" : ""
             } `}
           >
-            <form
-              onSubmit={handleSubmit}
-              className="search-field rounded-8 h-50"
-            >
-              <input
-                required
-                className="bg-light-3 pr-50"
-                type="text"
-                placeholder="Search Courses"
-              />
-              <button className="" type="submit">
-                <i className="icon-search text-light-1 text-20"></i>
-              </button>
-            </form>
 
             <div className="accordion -block text-left pt-20 js-accordion">
               {accordionItems.map((item, ind) => (
@@ -139,6 +84,7 @@ export default function Messages({ setMessageOpen, messageOpen }) {
                         <span className="lh-1 fw-500">
                           {item.content.length}
                         </span>
+                        
                       </div>
                       <div className="icon d-flex items-center justify-center">
                         <span className="lh-1 fw-500">
@@ -146,9 +92,7 @@ export default function Messages({ setMessageOpen, messageOpen }) {
                         </span>
                       </div>
                     </div>
-                    <span className="text-17 fw-500 text-dark-1 pt-3">
-                      {item.title}
-                    </span>
+                  
                   </div>
 
                   <div
@@ -316,144 +260,6 @@ export default function Messages({ setMessageOpen, messageOpen }) {
             }`}
           >
             <div className="tabs -pills js-tabs">
-              <div className="tabs__controls d-flex js-tabs-controls">
-                <button
-                  onClick={() => setContactTabOpen(1)}
-                  className={`tabs__button px-15 py-8 rounded-8 text-dark-1 js-tabs-button ${
-                    contactTabOpen == 1 ? "is-active" : ""
-                  } `}
-                  data-tab-target=".-tab-item-1"
-                  type="button"
-                >
-                  Contacts
-                </button>
-
-                <button
-                  onClick={() => setContactTabOpen(2)}
-                  className={`tabs__button px-15 py-8 rounded-8 text-dark-1 js-tabs-button ${
-                    contactTabOpen == 2 ? "is-active" : ""
-                  } `}
-                  data-tab-target=".-tab-item-2"
-                  type="button"
-                >
-                  Request
-                </button>
-              </div>
-
-              <div className="tabs__content pt-30 js-tabs-content">
-                <div
-                  className={`tabs__pane -tab-item-1  ${
-                    contactTabOpen == 1 ? "is-active" : ""
-                  } `}
-                >
-                  <div className="row x-gap-10 y-gap-10 items-center">
-                    <div className="col-auto">
-                      <img
-                        src="/assets/img/dashboard/right-sidebar/contacts/1.png"
-                        alt="image"
-                      />
-                    </div>
-                    <div className="col-auto">
-                      <div className="text-15 lh-12 fw-500 text-dark-1">
-                        Darlene Robertson
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className={`tabs__pane -tab-item-2 ${
-                    contactTabOpen == 2 ? "is-active" : ""
-                  } `}
-                >
-                  <div className="row x-gap-10 y-gap-10 items-center">
-                    <div className="col-auto">
-                      <img
-                        src="/assets/img/dashboard/right-sidebar/contacts/1.png"
-                        alt="image"
-                      />
-                    </div>
-                    <div className="col-auto">
-                      <div className="text-15 lh-12 fw-500 text-dark-1">
-                        Darlene Robertson
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            data-sidebar-menu-open="settings"
-            className={`sidebar-menu__item -sidebar-menu ${
-              currentTab == "settings" ? "-sidebar-menu-opened" : ""
-            }`}
-          >
-            <div className="text-17 text-dark-1 fw-500">Privacy</div>
-            <div className="text-15 mt-5">
-              You can restrict who can message you
-            </div>
-            <div className="mt-30">
-              <div className="form-radio d-flex items-center ">
-                <div className="radio">
-                  <input type="radio" />
-                  <div className="radio__mark">
-                    <div className="radio__icon"></div>
-                  </div>
-                </div>
-                <div className="lh-1 text-13 text-dark-1 ml-12">
-                  My contacts only
-                </div>
-              </div>
-
-              <div className="form-radio d-flex items-center mt-15">
-                <div className="radio">
-                  <input type="radio" />
-                  <div className="radio__mark">
-                    <div className="radio__icon"></div>
-                  </div>
-                </div>
-                <div className="lh-1 text-13 text-dark-1 ml-12">
-                  My contacts and anyone in my courses
-                </div>
-              </div>
-
-              <div className="form-radio d-flex items-center mt-15">
-                <div className="radio">
-                  <input type="radio" />
-                  <div className="radio__mark">
-                    <div className="radio__icon"></div>
-                  </div>
-                </div>
-                <div className="lh-1 text-13 text-dark-1 ml-12">
-                  Anyone on the site
-                </div>
-              </div>
-            </div>
-
-            <div className="text-17 text-dark-1 fw-500 mt-30 mb-30">
-              Notification preferences
-            </div>
-            <div className="form-switch d-flex items-center">
-              <div className="switch">
-                <input type="checkbox" />
-                <span className="switch__slider"></span>
-              </div>
-              <div className="text-13 lh-1 text-dark-1 ml-10">Email</div>
-            </div>
-
-            <div className="text-17 text-dark-1 fw-500 mt-30 mb-30">
-              General
-            </div>
-            <div className="form-switch d-flex items-center">
-              <div className="switch">
-                <input type="checkbox" />
-                <span className="switch__slider"></span>
-              </div>
-              <div className="text-13 lh-1 text-dark-1 ml-10">
-                Use enter to send
-              </div>
             </div>
           </div>
         </div>

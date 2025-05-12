@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import FooterNine from "../layout/footers/FooterNine";
 import { coursesData } from "@/data/dashboard";
 import Pagination from "../common/Pagination";
 import CoursesCardDashboard from "./DashBoardCards/CoursesCardDashboard";
@@ -64,26 +63,6 @@ export default function MyCourses() {
                     onClick={() => setActiveTab(1)}
                   >
                     All Courses
-                  </button>
-                  <button
-                    className={`text-light-1 lh-12 tabs__button js-tabs-button ml-30 ${
-                      activeTab == 2 ? "is-active" : ""
-                    } `}
-                    data-tab-target=".-tab-item-2"
-                    type="button"
-                    onClick={() => setActiveTab(2)}
-                  >
-                    Finished
-                  </button>
-                  <button
-                    className={`text-light-1 lh-12 tabs__button js-tabs-button ml-30 ${
-                      activeTab == 3 ? "is-active" : ""
-                    } `}
-                    data-tab-target=".-tab-item-3"
-                    type="button"
-                    onClick={() => setActiveTab(3)}
-                  >
-                    Not enrolled
                   </button>
                 </div>
 
@@ -164,74 +143,6 @@ export default function MyCourses() {
                               </div>
                             </div>
                           </div>
-                          <div>
-                            <div
-                              id="dd15button"
-                              onClick={() => {
-                                document
-                                  .getElementById("dd15button")
-                                  .classList.toggle("-is-dd-active");
-                                document
-                                  .getElementById("dd15content")
-                                  .classList.toggle("-is-el-visible");
-                              }}
-                              className="dropdown js-dropdown js-review-active"
-                            >
-                              <div
-                                className="dropdown__button d-flex items-center text-14 bg-white -dark-bg-dark-2 border-light rounded-8 px-20 py-10 text-14 lh-12"
-                                data-el-toggle=".js-review-toggle"
-                                data-el-toggle-active=".js-review-active"
-                              >
-                                <span className="js-dropdown-title">
-                                  Old Review
-                                </span>
-                                <i className="icon text-9 ml-40 icon-chevron-down"></i>
-                              </div>
-
-                              <div
-                                id="dd15content"
-                                className="toggle-element -dropdown -dark-bg-dark-2 -dark-border-white-10 js-click-dropdown js-review-toggle"
-                              >
-                                <div className="text-14 y-gap-15 js-dropdown-list">
-                                  <div>
-                                    <a
-                                      href="#"
-                                      className="d-block js-dropdown-link"
-                                    >
-                                      Animation
-                                    </a>
-                                  </div>
-
-                                  <div>
-                                    <a
-                                      href="#"
-                                      className="d-block js-dropdown-link"
-                                    >
-                                      Design
-                                    </a>
-                                  </div>
-
-                                  <div>
-                                    <a
-                                      href="#"
-                                      className="d-block js-dropdown-link"
-                                    >
-                                      Illustration
-                                    </a>
-                                  </div>
-
-                                  <div>
-                                    <a
-                                      href="#"
-                                      className="d-block js-dropdown-link"
-                                    >
-                                      Business
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -248,17 +159,12 @@ export default function MyCourses() {
                       </div>
                     </div>
                   </div>
-
-                  {/* <div className="tabs__pane -tab-item-2"></div>
-                  <div className="tabs__pane -tab-item-3"></div> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <FooterNine />
     </div>
   );
 }

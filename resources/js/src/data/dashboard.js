@@ -20,13 +20,13 @@ export const states = [
     new: 90,
     iconClass: "icon-graduate-cap",
   },
-  {
-    id: 4,
-    title: "Total Instructors",
-    value: 22786,
-    new: 290,
-    iconClass: "icon-online-learning",
-  },
+  // {
+  //   id: 4,
+  //   title: "Total Instructors",
+  //   value: 22786,
+  //   new: 290,
+  //   iconClass: "icon-online-learning",
+  // },
 ];
 
 export const coursesData = [
@@ -327,24 +327,24 @@ export const timeline = [
 export const courseDiscussion = [
   {
     key: 1,
-    title: `Depiction in foreign language films`,
+    title: "Depiction in foreign language films",
     author1Img: "/assets/img/misc/2.png",
     author2Img: "/assets/img/misc/2.png",
-    author1: `Heather Reyes`,
-    date1: `10 Nov 2014`,
-    author2: `Jeffrey Sanders`,
-    date2: `16 Feb 2017`,
+    author1: "Heather Reyes",
+    date1: "10 Nov 2014",
+    author2: "Jeffrey Sanders",
+    date2: "16 Feb 2017",
     count: 5,
   },
   {
     key: 2,
-    title: `Depiction in foreign language films`,
+    title: "Depiction in foreign language films",
     author1Img: "/assets/img/misc/2.png",
     author2Img: "/assets/img/misc/2.png",
-    author1: `Heather Reyes`,
-    date1: `10 Nov 2014`,
-    author2: `Jeffrey Sanders`,
-    date2: `16 Feb 2017`,
+    author1: "Heather Reyes",
+    date1: "10 Nov 2014",
+    author2: "Jeffrey Sanders",
+    date2: "16 Feb 2017",
     count: 5,
   },
 ];

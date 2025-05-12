@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CartToggle from "../component/CartToggle";
-import { sidebarItems } from "../../../data/homeSidebarItems";
 import { notifications } from "@/data/notifications";
 import Messages from "../component/Messages";
 import MyCourses from "../component/MyCourses";
@@ -104,16 +102,7 @@ export default function HeaderDashboard() {
 
                 <div className="header__logo ml-30 md:ml-20">
                   <Link data-barba to="/">
-                    <img
-                      className="-light-d-none"
-                      src="/assets/img/general/logo.png"
-                      alt="logo"
-                    />
-                    <img
-                      className="-dark-d-none"
-                      src="/assets/img/general/logo-dark.svg"
-                      alt="logo"
-                    />
+                  <img src="/assets/img/general/logo.png" alt="logo"style={{ height: "80px" }} />
                   </Link>
                 </div>
               </div>
@@ -144,26 +133,10 @@ export default function HeaderDashboard() {
                         </div>
                         <div>
                           <Link
-                            to="/dshb-bookmarks"
-                            className="d-block text-dark-1"
-                          >
-                            Bookmarks
-                          </Link>
-                        </div>
-                        <div>
-                          <Link
                             to="/dshb-listing"
                             className="d-block text-dark-1"
                           >
                             Add Listing
-                          </Link>
-                        </div>
-                        <div>
-                          <Link
-                            to="/dshb-reviews"
-                            className="d-block text-dark-1"
-                          >
-                            Reviews
                           </Link>
                         </div>
                         <div>
@@ -199,13 +172,6 @@ export default function HeaderDashboard() {
                       <i className="text-24 icon icon-maximize"></i>
                     </button>
                   </div>
-
-                  <CartToggle
-                    parentClassess={"relative"}
-                    allClasses={
-                      "d-flex items-center text-light-1 d-flex items-center justify-center size-50 rounded-16 -hover-dshb-header-light"
-                    }
-                  />
 
                   <div
                     className="relative"
@@ -273,42 +239,11 @@ export default function HeaderDashboard() {
                   className="relative d-flex items-center ml-10"
                   onClick={() => setIsOnProfile((pre) => !pre)}
                 >
-                  <a href="#" data-el-toggle=".js-profile-toggle">
-                    <img
+                  <img
                       className="size-50"
                       src="/assets/img/misc/user-profile.png"
                       alt="image"
                     />
-                  </a>
-
-                  <div
-                    className={`toggle-element js-profile-toggle ${
-                      isOnProfile ? "-is-el-visible" : ""
-                    } -`}
-                  >
-                    <div className="toggle-bottom -profile bg-white shadow-4 border-light rounded-8 mt-10">
-                      <div className="px-30 py-30">
-                        <div className="sidebar -dashboard">
-                          {sidebarItems.map((elm, i) => (
-                            <div
-                              key={i}
-                              className={`sidebar__item ${
-                                elm.id == 1 ? "-is-active -dark-bg-dark-2" : ""
-                              }`}
-                            >
-                              <a
-                                href={elm.href}
-                                className="d-flex items-center text-17 lh-1 fw-500 "
-                              >
-                                <i className={elm.iconClass}></i>
-                                {elm.text}
-                              </a>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

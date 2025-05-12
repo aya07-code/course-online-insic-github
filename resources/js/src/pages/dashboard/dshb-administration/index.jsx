@@ -1,4 +1,3 @@
-import DashboardOne from "@/components/dashboard/DashboardOne";
 import Sidebar from "@/components/dashboard/Sidebar";
 import Administration from "@/components/dashboard/Administration";
 import HeaderDashboard from "@/components/layout/headers/HeaderDashboard";

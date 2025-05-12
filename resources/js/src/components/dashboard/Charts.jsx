@@ -10,18 +10,18 @@ import {
 } from "recharts";
 
 const data = [
-  { name: "Jan", value: 148 },
-  { name: "Feb", value: 100 },
-  { name: "Marc", value: 205 },
-  { name: "April", value: 110 },
-  { name: "May", value: 165 },
-  { name: "Jun", value: 145 },
-  { name: "July", value: 180 },
-  { name: "Agust", value: 156 },
-  { name: "Sept", value: 148 },
-  { name: "Oct", value: 220 },
-  { name: "Now", value: 180 },
-  { name: "Dec", value: 245 },
+  { name: "Jan", students: 148 },
+  { name: "Feb", students: 100 },
+  { name: "Marc", students: 205 },
+  { name: "April", students: 110 },
+  { name: "May", students: 165 },
+  { name: "Jun", students: 145 },
+  { name: "July", students: 180 },
+  { name: "Agust", students: 156 },
+  { name: "Sept", students: 148 },
+  { name: "Oct", students: 220 },
+  { name: "Now", students: 180 },
+  { name: "Dec", students: 245 },
 ];
 
 const Charts = () => {
@@ -39,7 +39,7 @@ const Charts = () => {
         <Tooltip />
         <Line
           type="monotone"
-          dataKey="value"
+          dataKey="students"
           strokeWidth={2}
           stroke="#336CFB"
           fill="#336CFB"

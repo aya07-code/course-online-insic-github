@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 export default function MyCourses() {
   const [isActive, setIsActive] = useState(false);
   return (
@@ -57,12 +57,9 @@ export default function MyCourses() {
             </div>
 
             <div className="mt-20">
-              <a
-                href="#"
-                className="button py-20 -dark-1 text-white -dark-bg-purple-1 -dark-border-dark-2 col-12"
-              >
-                Go to My Learning
-              </a>
+              <Link to="/lesson-single-2" className="button py-20 -dark-1 text-white -dark-bg-purple-1 -dark-border-dark-2 col-12">
+                  Go to My Courses
+              </Link>
             </div>
           </div>
         </div>
