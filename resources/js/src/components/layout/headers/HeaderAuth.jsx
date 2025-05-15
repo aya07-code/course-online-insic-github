@@ -40,12 +40,12 @@ export default function HeaderAuth() {
               </div>
 
               <div className="header-right__buttons md:d-none">
-                <a
-                  href="signup"
+                <Link
+                  to="/signup"
                   className="button -sm -rounded -dark-1 text-white"
-                >
-                  Sign Up
-                </a>
+                  >
+                     Sign Up
+                  </Link>
               </div>
             </div>
           </div>

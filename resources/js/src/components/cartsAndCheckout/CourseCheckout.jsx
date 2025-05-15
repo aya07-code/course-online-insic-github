@@ -222,9 +222,9 @@ export default function CourseCheckOut() {
                       }  px-30`}
                     >
                       <div className="py-15 text-grey">
-                        <Link className="linkCustom" to={`/courses/${elm.id}`}>
-                          {elm.title}{" "}
-                        </Link>{" "}
+                        <Link className="linkCustom" to="/courses-single-6">
+                          {elm.title}
+                        </Link>
                         x {elm.quantity}
                       </div>
                       <div className="py-15 text-grey">

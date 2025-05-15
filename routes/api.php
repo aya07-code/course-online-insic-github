@@ -26,9 +26,8 @@ Route::get('/', function () {
 });
 
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login',    [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
 
-// Protected routes with Sanctum middleware
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('admins', AdminController::class);
     Route::apiResource('assistants', AssistantController::class);
@@ -48,5 +47,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('teachers', TeacherController::class);
     Route::apiResource('users', UserController::class);
     Route::apiResource('user-quizzes', UserQuizController::class);
+    Route::post('/user/avatar', [UserController::class, 'updateAvatar']);
     Route::post('/logout', [AuthController::class, 'logout']);
+})->get('/user', function (Request $request) {
+    return $request->user();
 });

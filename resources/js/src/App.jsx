@@ -19,6 +19,7 @@ import DshbBookmarksPage from "./pages/dashboard/dshb-bookmarks";
 import DshbListingPage from "./pages/dashboard/dshb-listing";
 import DshbReviewsPage from "./pages/dashboard/dshb-reviews";
 import DshbSettingsPage from "./pages/dashboard/dshb-settings";
+import DshbInscription from "./pages/dashboard/dshb-inscription";
 import DshbMessagesPage from "./pages/dashboard/dshb-messages";
 import DshbQuizPage from "./pages/dashboard/dshb-quiz";
 import PricingPage from "./pages/others/pricing";
@@ -59,6 +60,7 @@ function App() {
               <Route path="dshb-listing" element={<DshbListingPage />} />
               <Route path="dshb-reviews" element={<DshbReviewsPage />} />
               <Route path="dshb-settings" element={<DshbSettingsPage />} />
+              <Route path="dshb-inscription" element={<DshbInscription />} />
               <Route path="dshb-messages" element={<DshbMessagesPage />} />
               <Route path="dshb-quiz" element={<DshbQuizPage />} />
               <Route path="pricing" element={<PricingPage />} />

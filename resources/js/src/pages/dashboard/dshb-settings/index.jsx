@@ -2,7 +2,6 @@ import Preloader from "@/components/common/Preloader";
 import Settings from "@/components/dashboard/Settings/Settings";
 import Sidebar from "@/components/dashboard/Sidebar";
 import HeaderDashboard from "@/components/layout/headers/HeaderDashboard";
-import React from "react";
 import MetaComponent from "@/components/common/MetaComponent";
 
 const metadata = {

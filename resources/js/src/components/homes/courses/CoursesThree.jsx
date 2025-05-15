@@ -3,13 +3,11 @@ import React, { useState, useEffect } from "react";
 import CourseCardTwo from "@/components/homes/courseCards/CourseCardTwo";
 import { allCategories } from "../../../data/courses";
 import { viewStatus } from "../../../data/courses";
-// import { difficulty } from "../../../data/courses";
 import { Link } from "react-router-dom";
 export default function CategoriesTwo() {
   const [pageItems, setPageItems] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("All");
   const [rating, setRating] = useState("All");
-  // const [currentdifficulty, setCurrentdifficulty] = useState("All");
   const [currentDropdown, setCurrentDropdown] = useState("");
 
   useEffect(() => {
@@ -141,54 +139,7 @@ export default function CategoriesTwo() {
                     </div>
                   </div>
                 </div>
-                {/* <div>
-                  <div
-                    className={`dropdown js-dropdown js-drop3-active ${
-                      currentDropdown == "difficulty" ? "-is-dd-active" : ""
-                    }`}
-                  >
-                    <div
-                      onClick={() =>
-                        setCurrentDropdown((pre) =>
-                          pre == "difficulty" ? "" : "difficulty",
-                        )
-                      }
-                      className="dropdown__button d-flex items-center text-14 rounded-8 px-15 py-10 text-dark-1"
-                      data-el-toggle=".js-drop3-toggle"
-                      data-el-toggle-active=".js-drop3-active"
-                    >
-                      <span className="js-dropdown-title">
-                        {currentdifficulty == "All"
-                          ? "Diffiulty"
-                          : currentdifficulty}
-                      </span>
-                      <i className="icon text-9 ml-40 icon-chevron-down"></i>
-                    </div>
-
-                    <div
-                      className={`toggle-element -dropdown -dark-bg-dark-2 -dark-border-white-10 js-click-dropdown js-drop3-toggle ${
-                        currentDropdown == "difficulty" ? "-is-el-visible" : ""
-                      } `}
-                    >
-                      <div className="text-14 y-gap-15 js-dropdown-list">
-                        {difficulty.map((elm, i) => (
-                          <div
-                            key={i}
-                            onClick={() => {
-                              setCurrentdifficulty(elm);
-                              setCurrentDropdown("");
-                            }}
-                            className={`d-block js-dropdown-link cursor ${
-                              currentdifficulty == elm ? "activeMenu" : ""
-                            } `}
-                          >
-                            {elm}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
+               
               </div>
             </div>
           </div>

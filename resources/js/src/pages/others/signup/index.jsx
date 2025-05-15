@@ -1,14 +1,7 @@
-import PageLinks from "@/components/common/PageLinks";
 import Preloader from "@/components/common/Preloader";
-
-import FooterOne from "@/components/layout/footers/FooterOne";
-import Header from "@/components/layout/headers/Header";
 import HeaderAuth from "@/components/layout/headers/HeaderAuth";
 import AuthImageMove from "@/components/others/AuthImageMove";
-import LoginForm from "@/components/others/LoginForm";
 import SignUpForm from "@/components/others/SignUpForm";
-import Terms from "@/components/terms/Terms";
-import React from "react";
 import MetaComponent from "@/components/common/MetaComponent";
 
 const metadata = {

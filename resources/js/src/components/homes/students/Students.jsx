@@ -1,6 +1,6 @@
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import {Link} from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { students } from "../../../data/students";
 export default function Students() {
@@ -84,27 +84,16 @@ export default function Students() {
                         </div>
 
                         <h4 className="teamCard__title text-17 lh-15 fw-500 mt-12">
-                          {elm.name}
+                          name
                         </h4>
                         <div className="teamCard__subtitle text-14 lh-1 mt-5">
-                          {elm.title}
-                        </div>
-
-                        <div className="teamCard-tags pt-20">
-                          {elm.tags.map((itm, index) => (
-                            <div key={index} className="teamCard-tags__item">
-                              <div className="teamCard-tags__tag">{itm}</div>
-                            </div>
-                          ))}
+                          email
                         </div>
 
                         <div className="teamCard__button mt-20">
-                          <a
-                            href={elm.buttonLink}
-                            className="button -icon -outline-purple-1 -rounded text-purple-1"
-                          >
+                          <Link to="/dashboard" className="button -icon -outline-purple-1 -rounded text-purple-1">
                             View Profile
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>

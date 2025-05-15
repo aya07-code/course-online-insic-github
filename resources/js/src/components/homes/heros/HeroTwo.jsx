@@ -6,7 +6,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { useEffect, useState } from "react";
-import React from "react";
 import { featureTwo } from "../../../data/features";
 import { slidesData } from "../../../data/hero";
 import { useNavigate } from "react-router-dom";
@@ -23,27 +22,14 @@ export default function HeroTwo() {
         {showSlider && (
           <Swiper
             // {...setting}
-
             modules={[Navigation, Pagination]}
-            navigation={{
-              nextEl: ".hero-slider-next",
-              prevEl: ".hero-slider-prev",
-            }}
+            navigation={{nextEl: ".hero-slider-next",prevEl: ".hero-slider-prev"}}
             spaceBetween={0}
             slidesPerView={1}
             breakpoints={{
-              // when window width is >= 576px
-              450: {
-                slidesPerView: 1,
-              },
-              // when window width is >= 768px
-              768: {
-                slidesPerView: 1,
-              },
-              1200: {
-                // when window width is >= 992px
-                slidesPerView: 1,
-              },
+              450: { slidesPerView: 1},
+              768: { slidesPerView: 1},
+              1200: { slidesPerView: 1},
             }}
             speed={1200}
           >
@@ -53,15 +39,7 @@ export default function HeroTwo() {
                   <div className="mainSlider__bg">
                     <div
                       className="bg-image js-lazy customedBg"
-                      style={{ backgroundImage: "url(/assets/img/home-2/cta/bgg.jpg)" }}
-                      style={{
-                        backgroundImage: `url(${item.bgImage})`,
-                        backgroundSize: "cover",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "center center",
-                        width: "100%",
-                        height: "100%",
-                      }}
+                      style={{backgroundImage: `url(${item.bgImage})`}}
                     ></div>
                   </div>
                 </div>
@@ -81,7 +59,7 @@ export default function HeroTwo() {
             >
               <h1 className="mainSlider__title text-white">
                 Your Journey To Succcess Starts Here{" "}
-                <span className="text-green-1 underline">Welcome To INSIC</span>
+                <span className="text-purple-1 underline">Welcome To INSIC</span>
               </h1>
 
               <p className="mainSlider__text text-white">

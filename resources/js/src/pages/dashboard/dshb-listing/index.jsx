@@ -2,7 +2,6 @@ import Preloader from "@/components/common/Preloader";
 import Listing from "@/components/dashboard/listing/Listing";
 import Sidebar from "@/components/dashboard/Sidebar";
 import HeaderDashboard from "@/components/layout/headers/HeaderDashboard";
-import React from "react";
 
 import MetaComponent from "@/components/common/MetaComponent";
 

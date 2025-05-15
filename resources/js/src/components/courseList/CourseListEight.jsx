@@ -789,9 +789,10 @@ export default function CourseListEight() {
                         </div>
                       </div>
                       <div className="text-17 lh-13 fw-500 text-dark-1 mt-10">
-                        <Link className="linkCustom" to={`/courses/${elm.id}`}>
+                        <Link className="linkCustom" to="/courses-single-6">
                           {elm.title}{" "}
                         </Link>
+              </Link>
                       </div>
 
                       <div className="d-flex x-gap-15 items-center py-10">

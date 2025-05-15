@@ -1,4 +1,3 @@
-import React from "react";
 import HeaderTwo from "@/components/layout/headers/HeaderTwo";
 import HeroTwo from "@/components/homes/heros/HeroTwo";
 

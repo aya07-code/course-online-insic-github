@@ -40,7 +40,7 @@ export default function CourceCardSeven({ data, index }) {
             </div>
 
             <div className="text-17 lh-15 fw-500 text-dark-1 mt-10">
-              <Link className="linkCustom" to={`/courses/${data.id}`}>
+              <Link className="linkCustom" to="lesson-single-2">
                 {data.title}
               </Link>
             </div>

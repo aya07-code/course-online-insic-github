@@ -14,10 +14,13 @@ class Formation extends Model
         'description',
         'price',
         'duree',
-        'categories_id',
+        'categories_id', // Assurez-vous que ce champ est inclus
     ];
 
-    public function category()  { return $this->belongsTo(Categorie::class, 'categories_id'); }
+    public function category()
+    {
+        return $this->belongsTo(Categorie::class, 'categories_id');
+    }
     public function chapitres() { return $this->hasMany(Chapitre::class); }
     public function paiements() { return $this->hasMany(Paiement::class); }
     public function formationUsers() { return $this->hasMany(FormationUser::class); }

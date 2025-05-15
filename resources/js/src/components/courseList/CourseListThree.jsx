@@ -808,9 +808,10 @@ export default function CourseListThree() {
                       </div>
 
                       <div className="text-17 lh-15 fw-500 text-dark-1 mt-10">
-                        <Link className="linkCustom" to={`/courses/${elm.id}`}>
+                        <Link className="linkCustom" to="/courses-single-6">
                           {elm.title}{" "}
                         </Link>
+              </Link>
                       </div>
 
                       <div className="d-flex x-gap-10 items-center pt-10">

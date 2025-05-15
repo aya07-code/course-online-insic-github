@@ -1,3 +1,4 @@
+import { faFileSignature } from '@fortawesome/free-solid-svg-icons';
 export const sidebarItems = [
   {
     id: 1,
@@ -43,21 +44,22 @@ export const sidebarItems = [
     text: "Settings",
   },
   {
-    id: 16,
-    href: "/dshb-messages",
-    text: "Messages",
-    iconClass: "text-20 icon-message",
-  },
-  {
-    id: 18,
+    id: 8,
     href: "/dshb-quiz",
     text: "Quiz",
     iconClass: "text-20 icon-time-management",
   },
   {
-    id: 8,
+    id: 9,
     href: "/",
     iconClass: "text-20 icon-power",
     text: "Logout",
+  },
+  {
+    id: 10,
+    href: "/dshb-inscription",
+    iconClass: "text-20 ",
+    icon: faFileSignature, 
+    text: "Inscription",
   },
 ];

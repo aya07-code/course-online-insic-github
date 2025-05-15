@@ -17,8 +17,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->float('price')->default(0);
             $table->string('duree')->nullable();
-            $table->foreignId('categories_id')->constrained('categories')->onDelete('cascade');
-            $table->timestamps();
+            $table->foreignId('categories_id')->nullable()->constrained('categories')->onDelete('cascade');
+            $table->timestamps(); // Ajout des colonnes timestamps
         });
     }
 

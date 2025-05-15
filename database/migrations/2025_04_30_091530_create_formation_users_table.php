@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('formation_users', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('formation_id')->constrained()->onDelete('cascade');
             $table->date('date')->nullable();
-            $table->primary(['user_id', 'formation_id']);
             $table->timestamps();
+            $table->unique(['user_id', 'formation_id']); // Utilisez unique au lieu de primary key
         });
     }
 

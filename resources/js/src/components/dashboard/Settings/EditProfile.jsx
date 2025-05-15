@@ -44,11 +44,6 @@ export default function EditProfile({ activeTab }) {
         </label>
 
         <div className="col-auto">
-          <div className="text-16 fw-500 text-dark-1">Your avatar</div>
-          <div className="text-14 lh-1 mt-10">
-            PNG or JPG no bigger than 800px wide and tall.
-          </div>
-
           <div className="d-flex x-gap-10 y-gap-10 flex-wrap pt-15">
             <div>
               <div className="d-flex justify-center items-center size-40 rounded-8 bg-light-3">

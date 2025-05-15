@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -8,6 +8,45 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function updateAvatar(Request $request)
+    {
+    $user = auth()->user();
+
+    if ($request->hasFile('avatar')) {
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ]);
+
+        if ($user->avatar) {
+            Storage::disk('public')->delete($user->avatar);
+        }
+
+        $avatarPath = $request->file('avatar')->store('avatars', 'public');
+        $user->avatar = $avatarPath;
+        $user->save();
+
+        return response()->json([
+            'message' => 'Avatar updated successfully',
+            'avatar' => asset("storage/" . $user->avatar),
+        ]);
+    }
+
+    // Supprimer l'image (remettre l'image par défaut)
+    if ($request->get('remove_avatar') === '1') {
+        if ($user->avatar) {
+            Storage::disk('public')->delete($user->avatar);
+            $user->avatar = null;
+            $user->save();
+        }
+
+        return response()->json([
+            'message' => 'Avatar removed successfully',
+            'avatar' => asset("/assets/img/dashboard/edit/2j.jpg"),
+        ]);
+    }
+
+    return response()->json(['message' => 'No avatar provided'], 400);
+}
     public function index()
     {
         $users = User::paginate(10);

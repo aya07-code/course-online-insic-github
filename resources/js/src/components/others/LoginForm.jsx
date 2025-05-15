@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import React from "react";
-
 export default function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +23,7 @@ export default function LoginForm() {
               >
                 <div className="col-12">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                    Username Or Email
+                    Email
                   </label>
                   <input required type="text" name="title" placeholder="Name" />
                 </div>

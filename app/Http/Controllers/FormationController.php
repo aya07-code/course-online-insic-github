@@ -12,8 +12,8 @@ class FormationController extends Controller
      */
     public function index()
     {
-        // Récupérer toutes les formations avec leurs relations
-        $formations = Formation::with(['category', 'paiements', 'chapitres', 'certifications', 'feedbacks', 'formationUsers'])->get();
+        // Vérifiez que cette méthode retourne bien toutes les formations
+        $formations = Formation::with('category')->get();
         return response()->json($formations, 200);
     }
 
@@ -23,21 +23,18 @@ class FormationController extends Controller
     public function store(Request $request)
     {
         // Valider les données
-        $validatedData = $request->validate([
+        $validated = $request->validate([
             'titre' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'duree' => 'nullable|string|max:255',
             'categories_id' => 'required|exists:categories,id',
+            'duree' => 'nullable|string',
+            'price' => 'required|numeric',
         ]);
 
         // Créer une nouvelle formation
-        $formation = Formation::create($validatedData);
+        $formation = Formation::create($validated);
 
-        return response()->json([
-            'message' => 'Formation created successfully',
-            'data' => $formation
-        ], 201);
+        return response()->json($formation, 201);
     }
 
     /**

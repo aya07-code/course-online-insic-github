@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import React from "react";
-
 export default function SignUpForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
