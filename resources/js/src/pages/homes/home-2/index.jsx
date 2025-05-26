@@ -5,7 +5,6 @@ import CoursesThree from "../../../components/homes/courses/CoursesThree";
 import FindLearningPath from "../../../components/homes/FindLearningPath";
 import LearningSolutions from "../../../components/homes/LearningPath/LearningSolutions";
 import CategoriesTwo from "@/components/homes/categories/CategoriesTwo";
-import Students from "@/components/homes/students/Students";
 
 import FooterTwo from "@/components/layout/footers/FooterTwo";
 import Preloader from "@/components/common/Preloader";
@@ -29,7 +28,6 @@ export default function HomePage2() {
         <FindLearningPath />
         <LearningSolutions />
         <CategoriesTwo />
-        <Students />
         <FooterTwo />
       </div>
     </>

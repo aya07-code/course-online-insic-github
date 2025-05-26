@@ -20,9 +20,9 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserQuizController;
 
-Route::get('/', function () {
+Route::get('/{any}', function () {
     return view('home'); 
-});
+})->where('any', '.*');
 
 // Routes pour les contrôleurs
 Route::resource('admins', AdminController::class);
@@ -43,3 +43,6 @@ Route::resource('students', StudentController::class);
 Route::resource('teachers', TeacherController::class);
 Route::resource('users', UserController::class);
 Route::resource('user-quizzes', UserQuizController::class);
+
+Route::get('/user/{id}/quiz-notes-results', [UserController::class, 'getQuizNotesResults']);
+Route::get('/test-quiz-notes-results-raw', [UserController::class, 'testQuizNotesResultsRaw']);

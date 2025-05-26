@@ -43,9 +43,6 @@ export default function MyCourses() {
         <div className="row pb-50 mb-10">
           <div className="col-auto">
             <h1 className="text-30 lh-12 fw-700">My Courses</h1>
-            <div className="mt-10">
-              Lorem ipsum dolor sit amet, consectetur.
-            </div>
           </div>
         </div>
 

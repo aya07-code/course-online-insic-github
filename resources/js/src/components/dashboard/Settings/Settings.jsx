@@ -15,10 +15,7 @@ export default function Settings() {
       <div className="dashboard__content bg-light-4">
         <div className="row pb-50 mb-10">
           <div className="col-auto">
-            <h1 className="text-30 lh-12 fw-700">Settings</h1>
-            <div className="mt-10">
-              Lorem ipsum dolor sit amet, consectetur.
-            </div>
+            <h1 className="text-30 lh-12 fw-700">Profile</h1>
           </div>
         </div>
 

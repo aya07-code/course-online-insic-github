@@ -53,10 +53,6 @@ const Charts = () => {
   return (
     <>
       {chart("preserveEnd")}
-      {/* {chart('preserveStart')}
-      {chart('preserveStartEnd')}
-      {chart('equidistantPreserveStart')}
-      {chart(1)} */}
     </>
   );
 };

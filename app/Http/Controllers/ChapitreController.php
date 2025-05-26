@@ -10,9 +10,15 @@ class ChapitreController extends Controller
     /**
      * Afficher la liste de tous les chapitres.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $chapitres = Chapitre::with(['formation', 'lessons', 'quiz'])->get();
+        $query = Chapitre::with(['formation', 'lessons', 'quiz']);
+        
+        if ($request->has('formation_id')) {
+            $query->where('formation_id', $request->formation_id);
+        }
+
+        $chapitres = $query->get();
 
         return response()->json([
             'success' => true,
@@ -26,7 +32,7 @@ class ChapitreController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'titre' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'formation_id' => 'required|exists:formations,id',
         ]);
@@ -75,9 +81,8 @@ class ChapitreController extends Controller
         }
 
         $validatedData = $request->validate([
-            'titre' => 'sometimes|string|max:255',
+            'title' => 'sometimes|string|max:255', // Vérifiez que le champ "title" est attendu
             'description' => 'nullable|string',
-            'formation_id' => 'sometimes|exists:formations,id',
         ]);
 
         $chapitre->update($validatedData);

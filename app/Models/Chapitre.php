@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chapitre extends Model
 {
+    protected $fillable = ['title', 'description', 'formation_id'];
     use HasFactory;
 
     public function formation() {return $this->belongsTo(Formation::class);}

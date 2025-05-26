@@ -55,11 +55,4 @@ export const sidebarItems = [
     iconClass: "text-20 icon-power",
     text: "Logout",
   },
-  {
-    id: 10,
-    href: "/dshb-inscription",
-    iconClass: "text-20 ",
-    icon: faFileSignature, 
-    text: "Inscription",
-  },
 ];

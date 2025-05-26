@@ -1,6 +1,6 @@
 import Preloader from "@/components/common/Preloader";
 import Quiz from "@/components/dashboard/Quiz";
-import Sidebar from "@/components/dashboard/Sidebar";
+import Sidebar from "@/components/dashboard/SidebarS";
 import HeaderDashboard from "@/components/layout/headers/HeaderDashboard";
 import React from "react";
 import MetaComponent from "@/components/common/MetaComponent";

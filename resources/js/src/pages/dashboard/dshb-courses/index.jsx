@@ -1,6 +1,6 @@
 import Preloader from "@/components/common/Preloader";
 import MyCourses from "@/components/dashboard/MyCourses";
-import Sidebar from "@/components/dashboard/Sidebar";
+import Sidebar from "@/components/dashboard/SidebarS";
 import HeaderDashboard from "@/components/layout/headers/HeaderDashboard";
 import React from "react";
 

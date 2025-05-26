@@ -1,30 +1,45 @@
-import { learnList, requirements, lessonItems } from "@/data/aboutcourses";
-import React from "react";
+import { useParams, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function Descriptions() {
+export default function Descriptions({ lessonId: propLessonId }) {
+  const { state } = useLocation(); // récupération des données envoyées via navigate
+  const params = useParams();
+  const lessonId = propLessonId || params.id;
+  const [lesson, setLesson] = useState(state || null); // Utilise d'abord les données si elles sont passées
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (lesson) return; // Si les données sont déjà là, ne pas faire de fetch
+    if (!lessonId) return;
+
+    const fetchLesson = async () => {
+      try {
+        const token = localStorage.getItem("auth_token");
+        const response = await axios.get(`/api/lessons/${lessonId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setLesson(response.data.data || response.data);
+      } catch (err) {
+        setError("Impossible de charger la leçon.");
+      }
+    };
+
+    fetchLesson();
+  }, [lessonId, lesson]);
+
+  if (error) {
+    return <div className="mt-60 lg:mt-40 text-red-500">{error}</div>;
+  }
+
+  if (!lesson) {
+    return <div className="mt-60 lg:mt-40">Chargement...</div>;
+  }
+
   return (
     <div className="mt-60 lg:mt-40">
-      <h4 className="text-18 fw-500">Description</h4>
-      <p className="mt-30">
-        Phasellus enim magna, varius et commodo ut, ultricies vitae velit. Ut
-        nulla tellus, eleifend euismod pellentesque vel, sagittis vel justo. In
-        libero urna, venenatis sit amet ornare non, suscipit nec risus. Sed
-        consequat justo non mauris pretium at tempor justo sodales. Quisque
-        tincidunt laoreet malesuada. Cum sociis natoque penatibus et magnis dis
-        parturient montes, nascetur.
-        <br />
-        <br />
-        This course is aimed at people interested in UI/UX Design. We’ll start
-        from the very beginning and work all the way through, step by step. If
-        you already have some UI/UX Design experience but want to get up to
-        speed using Adobe XD then this course is perfect for you too!
-        <br />
-        <br />
-        First, we will go over the differences between UX and UI Design. We will
-        look at what our brief for this real-world project is, then we will
-        learn about low-fidelity wireframes and how to make use of existing UI
-        design kits.
-      </p>
+      <h2 className="text-24 fw-700 mb-20">{lesson.title}</h2>
+      <p className="mb-10"><strong>Description :</strong> {lesson.description}</p>
     </div>
   );
 }

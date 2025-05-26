@@ -1,10 +1,8 @@
 import Descriptions from "@/components/aboutCourses/lesson/Descriptions";
-import LessonItems from "@/components/aboutCourses/lesson/LessonItems";
 import Reviews from "@/components/aboutCourses/lesson/Reviews";
 import VideoTwo from "@/components/aboutCourses/lesson/VideoTwo";
 import Preloader from "@/components/common/Preloader";
 import Header from "@/components/layout/headers/Header";
-import React from "react";
 import MetaComponent from "@/components/common/MetaComponent";
 
 const metadata = {
@@ -25,9 +23,9 @@ export default function LessonSinglePage2() {
           <div className="container">
             <div className="row justify-start marginCustom ">
               <div className="col-xxl-8 col-xl-7 col-lg-8">
-                <VideoTwo />
                 <Descriptions />
                 <Reviews />
+                <VideoTwo />
               </div>
             </div>
           </div>

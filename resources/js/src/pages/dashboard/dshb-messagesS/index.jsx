@@ -1,19 +1,17 @@
 import Preloader from "@/components/common/Preloader";
-import DashboardOne from "@/components/dashboard/DashboardOne";
-import Sidebar from "@/components/dashboard/Sidebar";
+import Message from "@/components/dashboard/Message";
+import Sidebar from "@/components/dashboard/SidebarS";
 import HeaderDashboard from "@/components/layout/headers/HeaderDashboard";
 import React from "react";
-
 import MetaComponent from "@/components/common/MetaComponent";
 
 const metadata = {
   title:
-    "Cashboard || Insic",
+    "Dashboard-messages || Insic",
   description:
     "Elevate your e-learning content with Insic.",
 };
-
-export default function DashboardPage() {
+export default function DshbMessagesPage() {
   return (
     <div className="barba-container" data-barba="container">
       <MetaComponent meta={metadata} />
@@ -28,7 +26,7 @@ export default function DashboardPage() {
             <div className="dashboard__sidebar scroll-bar-1">
               <Sidebar />
             </div>
-            <DashboardOne />
+            <Message />
           </div>
         </div>
       </main>

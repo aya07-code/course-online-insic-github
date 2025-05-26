@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController; 
@@ -28,6 +27,19 @@ Route::get('/', function () {
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
+// Route::middleware(['auth:sanctum', 'role:admin'])->get('/admin/dashboard', function () {
+//     return response()->json(['message' => 'Bienvenue admin']);
+// });
+
+// Route::middleware(['auth:sanctum', 'role:student'])->get('/student/dashboard', function () {
+//     return response()->json(['message' => 'Bienvenue étudiant']);
+// });
+
+// Dashboard général (accessible à admin et student)
+// Route::middleware(['auth:sanctum', 'role:admin,student'])->get('/dashboard', function () {
+//     return response()->json(['message' => 'Bienvenue sur le dashboard']);
+// });
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('admins', AdminController::class);
     Route::apiResource('assistants', AssistantController::class);
@@ -49,6 +61,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('user-quizzes', UserQuizController::class);
     Route::post('/user/avatar', [UserController::class, 'updateAvatar']);
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/test-quiz-notes-results-raw', [UserController::class, 'testQuizNotesResultsRaw']);
+    Route::put('/user/profile', [UserController::class, 'updateProfile']);
+    Route::put('/user/password', [UserController::class, 'updatePassword']);
+    Route::post('/fill-students', [UserController::class, 'fillStudentsFromUsers']);
 })->get('/user', function (Request $request) {
     return $request->user();
 });

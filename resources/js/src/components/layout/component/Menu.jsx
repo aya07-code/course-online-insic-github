@@ -1,31 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MobileFooter from "./MobileFooter";
-
-import { menuList } from "@/data/menu";
 import { useLocation } from "react-router-dom";
 
 export default function Menu({ allClasses, headerPosition }) {
   const [menuItem, setMenuItem] = useState("");
-  const [submenu, setSubmenu] = useState("");
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const userRole = localStorage.getItem("role"); 
 
-  useEffect(() => {
-    menuList.forEach((elm) => {
-      elm?.links?.forEach((elm2) => {
-        if (elm2.href?.split("/")[1] === pathname.split("/")[1]) {
-          setMenuItem(elm.title);
-        } else {
-          elm2?.links?.forEach((elm3) => {
-            if (elm3.href?.split("/")[1] === pathname.split("/")[1]) {
-              setMenuItem(elm.title);
-              setSubmenu(elm2.title);
-            }
-          });
-        }
-      });
-    });
-  }, [pathname]);
+  const handleDashboardClick = (e) => {
+    e.preventDefault();
+    if (userRole === "student") {
+      navigate("/dashboard-student");
+    } else {
+      navigate("/dashboard-admin");
+    }
+  };
 
   return (
     <div
@@ -71,6 +62,19 @@ export default function Menu({ allClasses, headerPosition }) {
 
             {/* Courses Section */}
             <li className="menu-item-has-children">
+              <Link
+                data-barba
+                to="/courses-list-5"
+                className={menuItem === "Courses" ? "activeMenu " : ""}
+              >
+                Courses
+              </Link>
+            </li>
+
+            {/* dashboard Section */}
+
+            {/* Courses Section */}
+              {/* <li className="menu-item-has-children">
               <Link
                 data-barba
                 to="#"
@@ -135,11 +139,10 @@ export default function Menu({ allClasses, headerPosition }) {
                   )
                 )}
               </ul>
-            </li>
-
+            </li>   */}
 
             {/* Pages Section */}
-            <li className="menu-item-has-children">
+              {/* <li className="menu-item-has-children">
               <Link
                 data-barba
                 to="#"
@@ -207,7 +210,7 @@ export default function Menu({ allClasses, headerPosition }) {
                   )
                 )}
               </ul>
-            </li>
+            </li>   */}
 
             {/* Contact Section */}
             <li>
@@ -219,6 +222,16 @@ export default function Menu({ allClasses, headerPosition }) {
                 }
               >
                 Contact
+              </Link>
+            </li>
+            <li className="menu-item-has-children">
+              <Link
+                data-barba
+                to={userRole === "student" ? "/dashboard-student" : "/dashboard-admin"}
+                onClick={handleDashboardClick}
+                className={menuItem === "Dashboard" ? "activeMenu" : ""}
+              >
+                Profile
               </Link>
             </li>
           </ul>

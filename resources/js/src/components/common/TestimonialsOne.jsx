@@ -1,18 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import axios from "axios";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { testimonials } from "../../data/tesimonials";
-import { counters } from "../../data/count";
 
 export default function TestimonialsOne() {
   const [showSlider, setShowSlider] = useState(false);
+  const [feedbacks, setFeedbacks] = useState([]);
+
   useEffect(() => {
     setShowSlider(true);
+    // Charger les feedbacks depuis l'API
+    const fetchFeedbacks = async () => {
+      try {
+        const token = localStorage.getItem("auth_token");
+        const response = await axios.get("/api/feedbacks", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setFeedbacks(response.data);
+      } catch (err) {
+        setFeedbacks([]);
+      }
+    };
+    fetchFeedbacks();
   }, []);
+
   return (
     <section className="layout-pt-lg mt-80 layout-pb-lg bg-purple-1" style={{ marginBottom: "80px" }}>
       <div className="container ">
@@ -22,10 +37,6 @@ export default function TestimonialsOne() {
               <h2 className="sectionTitle__title text-green-1">
                 What People Say
               </h2>
-
-              <p className="sectionTitle__text text-white">
-                Lorem ipsum dolor sit amet, consectetur.
-              </p>
             </div>
           </div>
         </div>
@@ -34,7 +45,6 @@ export default function TestimonialsOne() {
           {showSlider && (
             <Swiper
               className="overflow-visible"
-              // {...setting}
               modules={[Navigation, Pagination]}
               navigation={{
                 nextEl: ".icon-arrow-right",
@@ -58,37 +68,38 @@ export default function TestimonialsOne() {
                 },
               }}
             >
-              {testimonials.map((elm, i) => (
-                <SwiperSlide key={i} className="swiper-slide">
+              {feedbacks && feedbacks.length > 0 ? feedbacks.map((fb, i) => (
+                <SwiperSlide key={fb.id || i} className="swiper-slide">
                   <div
                     className="testimonials -type-1"
                     data-aos="fade-left"
                     data-aos-duration={(i + 1) * 550}
                   >
                     <div className="testimonials__content">
-                      <h4 className="testimonials__title">{elm.comment}</h4>
-                      <p className="testimonials__text">
-                        {`“${elm.description}”`}
-                      </p>
-
-                      <div className="testimonials-footer">
+                      <div>
                         <div className="testimonials-footer__image">
-                          <img src={elm.imageSrc} alt="image" />
+                          <img
+                            src={
+                              fb.user && fb.user.avatar
+                                ? (fb.user.avatar.startsWith("http") ? fb.user.avatar : "/" + fb.user.avatar.replace(/^\/+/, ""))
+                                : '/assets/img/testimonials/3.png'
+                            }
+                            alt="avatar"
+                          />
                         </div>
-
                         <div className="testimonials-footer__content">
-                          <div className="testimonials-footer__title">
-                            {elm.name}
-                          </div>
-                          <div className="testimonials-footer__text">
-                            {elm.position}
-                          </div>
+                          <h4 className="testimonials__title">
+                            {fb.user?.name || "Utilisateur"}
+                          </h4>
                         </div>
                       </div>
+                      <p className="testimonials__text">
+                        {`“${fb.contenu}”`}
+                      </p>
                     </div>
                   </div>
                 </SwiperSlide>
-              ))}
+              )) : null}
             </Swiper>
           )}
 

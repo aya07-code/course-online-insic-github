@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('notes')->nullable(); // Ajout de la colonne notes
+            $table->string('resultats')->nullable(); // Ajout de la colonne resultats
             $table->timestamps();
         });
     }

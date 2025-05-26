@@ -60,17 +60,18 @@ export default function CoursesCardDashboard({ data }) {
             </div>
           </div>
         </div>
-
-        <h3 className="text-16 fw-500 lh-15 mt-10">{data.title}</h3>
-
+        <div>
+            <Link className="linkCustom text-16 fw-500 lh-15 mt-10" to={"/courses-list-5"}>
+              {data.title}
+            </Link>
+        </div>
         <div className="progress-bar mt-10">
           <div className="progress-bar__bg bg-light-3"></div>
           <div className="progress-bar__bar bg-purple-1 w-1/5"></div>
         </div>
 
         <div className="d-flex y-gap-10 justify-between items-center mt-10">
-          <div className="text-dark-1">% {data.completed} Completed</div>
-          <div>25%</div>
+          <div className="text-dark-1">% {data.completed} Non Completed</div>
         </div>
       </div>
     </div>

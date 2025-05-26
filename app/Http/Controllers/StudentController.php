@@ -24,20 +24,26 @@ class StudentController extends Controller
             'password' => 'required|string|min:8|confirmed',
             'avatar' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048', // Validation pour l'avatar
         ]);
-
+         // Gestion de l'avatar
+        $avatarPath = '/assets/img/dashboard/edit/2j.jpg'; // Avatar par défaut
+        if ($request->hasFile('avatar')) {
+            $avatarPath = $request->file('avatar')->store('avatars', 'public'); // Stocker l'avatar téléchargé
+        }
         // Créer l'utilisateur
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
+            'avatar' => $avatarPath,
+            'email_verified_at' => now(),
         ]);
 
-        // Gestion de l'avatar
-        if ($request->hasFile('avatar')) {
-            $avatarPath = $request->file('avatar')->store('avatars', 'public');
-            $user->avatar = $avatarPath;
-            $user->save();
-        }
+        // // Gestion de l'avatar
+        // if ($request->hasFile('avatar')) {
+        //     $avatarPath = $request->file('avatar')->store('avatars', 'public');
+        //     $user->avatar = $avatarPath;
+        //     $user->save();
+        // }
 
         // Créer le student lié à l'utilisateur
         $student = Student::create([

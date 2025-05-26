@@ -21,7 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'avatar', // Ajout du champ avatar
+        'avatar',
+        'role',
+        'phone', // <-- assurez-vous que phone est ici
     ];
 
     /**

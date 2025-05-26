@@ -1,26 +1,56 @@
 import Star from "../common/Star";
-
-import { coursesData } from "@/data/courses";
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
 import PinContent from "./PinContent";
 import Overview from "./Overview";
 import CourseContent from "./CourseContent";
-import Instractor from "./Instractor";
 import Reviews from "./Reviews";
 const menuItems = [
   { id: 1, href: "#overview", text: "Overview", isActive: true },
   { id: 2, href: "#course-content", text: "Course Content", isActive: false },
-  { id: 3, href: "#instructors", text: "Instructors", isActive: false },
   { id: 4, href: "#reviews", text: "Reviews", isActive: false },
 ];
 
 export default function CourseDetailsTwo({ id }) {
-  const [pageItem, setPageItem] = useState(coursesData[0]);
+  const [formation, setFormation] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setPageItem(coursesData.filter((elm) => elm.id == id)[0] || coursesData[0]);
-  }, []);
+    const fetchFormation = async () => {
+      try {
+        const token = localStorage.getItem("auth_token");
+        const response = await axios.get(`/api/formations/${id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setFormation(response.data);
+      } catch (err) {
+        setError("Impossible de charger la formation.");
+      }
+    };
+    if (id) fetchFormation();
+  }, [id]);
+
+  if (error) {
+    return <div className="text-red-500">{error}</div>;
+  }
+
+  if (!formation) {
+    return <div>Chargement...</div>;
+  }
+
+  // Calculez la note moyenne à partir des feedbacks
+  let rating = 4.7; // valeur par défaut
+  if (formation.feedbacks && formation.feedbacks.length > 0) {
+    const sum = formation.feedbacks.reduce(
+      (acc, fb) => acc + (parseFloat(fb.rating) || 0),
+      0
+    );
+    rating = (sum / formation.feedbacks.length).toFixed(1);
+  }
+  // Pour la date de dernière mise à jour
+  const lastUpdate = formation.updated_at
+    ? new Date(formation.updated_at).toLocaleDateString()
+    : "N/A";
 
   return (
     <div id="js-pin-container" className="js-pin-container relative">
@@ -56,50 +86,33 @@ export default function CourseDetailsTwo({ id }) {
 
                 <div>
                   <h1 className="text-30 lh-14 text-white pr-60 lg:pr-0">
-                    {pageItem.title}
+                    {formation.titre}
                   </h1>
                 </div>
 
-                <p className="col-xl-9 mt-20">
-                  Use XD to get a job in UI Design, User Interface, User
-                  Experience design, UX design & Web Design
-                </p>
+                <p className=" text-18 col-xl-9 mt-20">{formation.description}</p>
 
                 <div className="d-flex x-gap-30 y-gap-10 items-center flex-wrap pt-20">
                   <div className="d-flex items-center">
-                    <div className="text-14 lh-1 text-yellow-1 mr-10">
-                      {pageItem.rating}
+                    <div className="text-18 lh-1 text-yellow-1 mr-10">
+                      {rating}
                     </div>
                     <div className="d-flex x-gap-5 items-center">
-                      <Star star={5} textSize={"text-11"} />
-                    </div>
-                    <div className="text-14 lh-1 text-light-1 ml-10">
-                      ({pageItem.ratingCount})
-                    </div>
-                  </div>
-
-                  <div className="d-flex items-center text-light-1">
-                    <div className="icon icon-person-3 text-13"></div>
-                    <div className="text-14 ml-8">
-                      853 enrolled on this course
+                      <Star star={rating} textSize={"text-11"} />
                     </div>
                   </div>
 
                   <div className="d-flex items-center text-light-1">
                     <div className="icon icon-wall-clock text-13"></div>
-                    <div className="text-14 ml-8">Last updated 11/2021</div>
+                    <div className="text-18 ml-8">
+                      Last updated {lastUpdate}
+                    </div>
                   </div>
                 </div>
-
-                <div className="d-flex items-center pt-20">
-                  <div
-                    className="bg-image size-30 rounded-full js-lazy"
-                    style={{
-                      backgroundImage: `url(${pageItem.authorImageSrc})`,
-                    }}
-                  ></div>
-                  <div className="text-14 lh-1 ml-10">
-                    {pageItem.authorName}
+                <div className="d-flex items-center text-light-1">
+                  <div className="icon-translate"></div>
+                  <div className="text-18 ml-8">
+                    Language {formation.language}
                   </div>
                 </div>
               </div>
@@ -107,7 +120,7 @@ export default function CourseDetailsTwo({ id }) {
           </div>
         </div>
       </section>
-      <PinContent pageItem={pageItem} />
+      <PinContent pageItem={formation}/>
 
       <section className="layout-pt-md layout-pb-md">
         <div className="container">
@@ -130,10 +143,9 @@ export default function CourseDetailsTwo({ id }) {
                 </div>
               </div>
 
-              <Overview />
-              <CourseContent />
-              <Instractor />
-              <Reviews />
+              <Overview formation={formation} />
+              <CourseContent formation={formation} />
+              <Reviews feedbacks={formation.feedbacks || []} />
             </div>
           </div>
         </div>

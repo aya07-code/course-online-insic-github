@@ -5,12 +5,6 @@ export const menuList = [
       { href: "/", label: "Home" },
     ],
   },
-  // {
-  //   title: "About",
-  //   links: [
-  //     { href: "/about-1", label: "Home" },
-  //   ],
-  // },
   { 
     title: "Courses",
     links: [
@@ -37,7 +31,7 @@ export const menuList = [
       {
         title: "Dashboard Pages",
         links: [
-          { href: "/dashboard", label: "Dashboard" },
+          { href: "/dashboard-student", label: "Dashboard" },
           { href: "/dshb-courses", label: "My Courses" },
           { href: "/dshb-bookmarks", label: "Bookmarks" },
           { href: "/dshb-listing", label: "Add Listing" },
@@ -53,11 +47,11 @@ export const menuList = [
       },
     ],
   },
-  {
-    title: "Pages",
-    links: [
-      { href: "/pricing", label: "Membership plans" },
-      { href: "/not-found", label: "404 Page" },
-    ],
-  },
+  // {
+  //   title: "Pages",
+  //   links: [
+  //     { href: "/pricing", label: "Membership plans" },
+  //     { href: "/not-found", label: "404 Page" },
+  //   ],
+  // },
 ];

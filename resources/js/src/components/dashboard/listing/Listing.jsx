@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash, faEye } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'; // Ajout
 
 export default function Listing() {
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ export default function Listing() {
     duree: "",
     price: "",
   });
-
+  const navigate = useNavigate();
   const [editingId, setEditingId] = useState(null);
   const [formations, setFormations] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -55,16 +56,28 @@ export default function Listing() {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this course?")) return;
+    const result = await Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: "Cette action est irréversible !",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Oui, supprimer !',
+      cancelButtonText: 'Annuler'
+    });
 
-    try {
-      const token = localStorage.getItem("auth_token");
-      await axios.delete(`/api/formations/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      fetchFormations();
-    } catch (err) {
-      console.error("Error deleting formation:", err);
+    if (result.isConfirmed) {
+      try {
+        const token = localStorage.getItem("auth_token");
+        await axios.delete(`/api/formations/${id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        fetchFormations();
+        Swal.fire('Supprimé !', 'Le cours a été supprimé.', 'success');
+      } catch (err) {
+        Swal.fire('Erreur', "Erreur lors de la suppression.", 'error');
+      }
     }
   };
 
@@ -120,17 +133,12 @@ export default function Listing() {
             <h1 className="text-30 lh-12 fw-700">
               {editingId ? "Edit Course" : "Create New Course"}
             </h1>
-            <div className="mt-10">Lorem ipsum dolor sit amet, consectetur.</div>
           </div>
         </div>
 
         <div className="row y-gap-60">
           <div className="col-12">
             <div className="rounded-16 bg-white -dark-bg-dark-1 shadow-4 h-100">
-              <div className="d-flex items-center py-20 px-30 border-bottom-light">
-                <h2 className="text-17 lh-1 fw-500">Basic Information</h2>
-              </div>
-
               <div className="py-30 px-30">
                 <form onSubmit={handleSubmit} className="contact-form row y-gap-30">
                   <div className="col-12">
@@ -248,18 +256,14 @@ export default function Listing() {
                 <tr key={formation.id}>
                   <td>
                     <div className="d-flex align-items-center">
-                      <img
-                        src="/assets/images/nft/nft-items-img1.png"
-                        alt=""
-                        className="flex-shrink-0 me-12 w-40-px h-40-px rounded-circle me-12"
-                      />
                       <div className="flex-grow-1">
-                        <h6 className="text-md mb-0 fw-semibold">
+                        <h6
+                          className="text-md mb-0 fw-semibold"
+                          style={{ cursor: "pointer", color: "#6440fb", textDecoration: "underline" }}
+                          onClick={() => navigate(`/courses-single-2/${formation.id}`)}
+                        >
                           {formation.titre}
                         </h6>
-                        <span className="text-sm text-secondary-light fw-normal">
-                          {formation.description}
-                        </span>
                       </div>
                     </div>
                   </td>
@@ -271,16 +275,24 @@ export default function Listing() {
                       <button
                         type="button"
                         className="text-xl text-success-600 hover:text-success-800 "
-                        onClick={() => handleEdit(formation)}  style={{ marginRight: "20px",fontSize: "18px" }}
+                        onClick={() => handleEdit(formation)}  style={{ marginRight: "15px",fontSize: "18px", cursor: "pointer" }}
                       >
                         <FontAwesomeIcon icon={faEdit} style={{ color: "#28a745" }}/>
                       </button>
                       <button
                         type="button"
                         className="text-xl text-red-600 hover:text-red-800"
-                        onClick={() => handleDelete(formation.id)}  style={{fontSize: "18px" }}
+                        onClick={() => handleDelete(formation.id)}  style={{fontSize: "18px", cursor: "pointer" }}
                       >
                         <FontAwesomeIcon icon={faTrash} style={{ color: "#dc3545" }} />
+                      </button>
+                      <button
+                        type="button"
+                        className="text-xl text-success-600 hover:text-success-800 "
+                        style={{ marginLeft: "15px",fontSize: "18px", cursor: "pointer" }}
+                        onClick={() => navigate(`/formations/${formation.id}`)}
+                      >
+                        <FontAwesomeIcon icon={faEye} style={{ color: "#0d6efd" }} />
                       </button>
                     </div>
                   </td>

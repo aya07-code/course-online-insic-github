@@ -12,19 +12,26 @@ class Formation extends Model
     protected $fillable = [
         'titre',
         'description',
+        'long_description', // Ajout ici
         'price',
         'duree',
-        'categories_id', // Assurez-vous que ce champ est inclus
+        'categories_id',
+        'language',
+        'imageSrc', // Ajout ici
     ];
 
     public function category()
     {
         return $this->belongsTo(Categorie::class, 'categories_id');
     }
-    public function chapitres() { return $this->hasMany(Chapitre::class); }
+    public function chapitres() {
+        return $this->hasMany(Chapitre::class)->with('lessons');
+    }
     public function paiements() { return $this->hasMany(Paiement::class); }
     public function formationUsers() { return $this->hasMany(FormationUser::class); }
     public function users() { return $this->belongsToMany(User::class, 'formation_users'); }
     public function certifications() { return $this->hasMany(Certification::class); }
-    public function feedbacks() { return $this->hasMany(Feedback::class); }
+    public function feedbacks() {
+        return $this->hasMany(\App\Models\Feedback::class, 'formation_id');
+    }
 }

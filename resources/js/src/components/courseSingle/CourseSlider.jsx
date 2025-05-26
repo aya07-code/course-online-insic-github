@@ -1,16 +1,31 @@
-import { coursesData } from "@/data/courses";
 import React, { useEffect, useState } from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Star from "../common/Star";
-
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function CourseSlider() {
   const [showSlider, setShowSlider] = useState(false);
+  const [formations, setFormations] = useState([]);
+
   useEffect(() => {
     setShowSlider(true);
+    // Charger les formations depuis l'API
+    const fetchFormations = async () => {
+      try {
+        const token = localStorage.getItem("auth_token");
+        const response = await axios.get("/api/formations", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setFormations(response.data);
+      } catch (err) {
+        setFormations([]);
+      }
+    };
+    fetchFormations();
   }, []);
+
   return (
     <section className="layout-pt-md layout-pb-lg">
       <div className="container">
@@ -26,39 +41,32 @@ export default function CourseSlider() {
           <div className="overflow-hidden js-section-slider">
             {showSlider && (
               <Swiper
-                // {...setting}
                 modules={[Navigation, Pagination]}
                 navigation={{
                   nextEl: ".js-courses-next-one",
                   prevEl: ".js-courses-prev-one",
                 }}
-                // loop={true}
                 spaceBetween={30}
                 slidesPerView={1}
                 breakpoints={{
-                  // when window width is >= 576px
-                  450: {
-                    slidesPerView: 2,
-                  },
-                  // when window width is >= 768px
-                  768: {
-                    slidesPerView: 3,
-                  },
-                  1200: {
-                    // when window width is >= 992px
-                    slidesPerView: 4,
-                  },
+                  450: { slidesPerView: 2 },
+                  768: { slidesPerView: 3 },
+                  1200: { slidesPerView: 4 },
                 }}
               >
-                {coursesData.slice(0, 12).map((elm, i) => (
-                  <SwiperSlide key={i}>
+                {formations.slice(0, 12).map((elm, i) => (
+                  <SwiperSlide key={elm.id || i}>
                     <div className="swiper-slide">
                       <div className="coursesCard -type-1 ">
                         <div className="relative">
                           <div className="coursesCard__image overflow-hidden rounded-8">
                             <img
                               className="w-1/1"
-                              src={elm.imageSrc}
+                              src={
+                                elm.imageSrc
+                                  ? "/" + elm.imageSrc
+                                  : "/assets/img/coursesCards/card2.jpg"
+                              }
                               alt="image"
                             />
                             <div className="coursesCard__image_overlay rounded-8"></div>
@@ -69,22 +77,34 @@ export default function CourseSlider() {
                         <div className="h-100 pt-15">
                           <div className="d-flex items-center">
                             <div className="text-14 lh-1 text-yellow-1 mr-10">
-                              {elm.rating}
+                              {/* Affiche la note moyenne si disponible */}
+                              {elm.feedbacks && elm.feedbacks.length > 0
+                                ? (
+                                    elm.feedbacks.reduce((acc, fb) => acc + (parseFloat(fb.rating) || 0), 0) /
+                                    elm.feedbacks.length
+                                  ).toFixed(1)
+                                : "N/A"}
                             </div>
                             <div className="d-flex x-gap-5 items-center">
-                              <Star star={elm.rating} />
-                            </div>
-                            <div className="text-13 lh-1 ml-10">
-                              ({elm.ratingCount})
+                              <Star
+                                star={
+                                  elm.feedbacks && elm.feedbacks.length > 0
+                                    ? (
+                                        elm.feedbacks.reduce((acc, fb) => acc + (parseFloat(fb.rating) || 0), 0) /
+                                        elm.feedbacks.length
+                                      )
+                                    : 0
+                                }
+                              />
                             </div>
                           </div>
 
                           <div className="text-17 lh-15 fw-500 text-dark-1 mt-10">
                             <Link
                               className="linkCustom"
-                              to="/lesson-single-2"
+                              to={`/courses-single-2/${elm.id}`}
                             >
-                              {elm.title}
+                              {elm.titre}
                             </Link>
                           </div>
 
@@ -97,7 +117,7 @@ export default function CourseSlider() {
                                 />
                               </div>
                               <div className="text-14 lh-1">
-                                {elm.lessonCount} lesson
+                                {elm.chapitres ? elm.chapitres.length : 0} chapitre
                               </div>
                             </div>
 
@@ -108,31 +128,9 @@ export default function CourseSlider() {
                                   alt="icon"
                                 />
                               </div>
-                              <div className="text-14 lh-1">{`${Math.floor(
-                                elm.duration / 60,
-                              )}h ${Math.floor(elm.duration % 60)}m`}</div>
+                              <div className="text-14 lh-1">{elm.duree || "N/A"}</div>
                             </div>
-                          </div>
-
-                          <div className="coursesCard-footer">
-                            <div className="coursesCard-footer__author">
-                              <img src={elm.authorImageSrc} alt="image" />
-                              <div>{elm.authorName}</div>
-                            </div>
-
-                            <div className="coursesCard-footer__price">
-                              {elm.paid ? (
-                                <>
-                                  <div>${elm.originalPrice}</div>
-                                  <div>${elm.discountedPrice}</div>
-                                </>
-                              ) : (
-                                <>
-                                  <div></div>
-                                  <div>Free</div>
-                                </>
-                              )}
-                            </div>
+                            <div className="text-20 text-dark-1">${elm.price}</div>
                           </div>
                         </div>
                       </div>

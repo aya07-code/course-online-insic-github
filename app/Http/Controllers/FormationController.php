@@ -12,8 +12,8 @@ class FormationController extends Controller
      */
     public function index()
     {
-        // Vérifiez que cette méthode retourne bien toutes les formations
-        $formations = Formation::with('category')->get();
+        // Charger les feedbacks et chapitres pour chaque formation
+        $formations = Formation::with(['category', 'feedbacks', 'chapitres.lessons'])->get();
         return response()->json($formations, 200);
     }
 
@@ -29,6 +29,7 @@ class FormationController extends Controller
             'categories_id' => 'required|exists:categories,id',
             'duree' => 'nullable|string',
             'price' => 'required|numeric',
+            'language' => 'nullable|string|max:100', // Ajout ici
         ]);
 
         // Créer une nouvelle formation
@@ -42,14 +43,26 @@ class FormationController extends Controller
      */
     public function show($id)
     {
-        // Trouver la formation par ID avec ses relations
-        $formation = Formation::with(['category', 'paiements', 'chapitres', 'certifications', 'feedbacks', 'formationUsers'])->find($id);
+        try {
+            $formation = Formation::with([
+                'category',
+                'paiements',
+                'chapitres.lessons', // <-- Ajoutez .lessons ici
+                'certifications',
+                'feedbacks',
+                'formationUsers'
+            ])->find($id);
 
-        if (!$formation) {
-            return response()->json(['message' => 'Formation not found'], 404);
+            if (!$formation) {
+                return response()->json(['message' => 'Formation not found'], 404);
+            }
+
+            return response()->json($formation, 200);
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            \Log::error('Formation show error: ' . $e->getMessage());
+            return response()->json(['message' => 'Server error', 'error' => $e->getMessage()], 500);
         }
-
-        return response()->json($formation, 200);
     }
 
     /**
@@ -71,6 +84,7 @@ class FormationController extends Controller
             'price' => 'sometimes|numeric|min:0',
             'duree' => 'nullable|string|max:255',
             'categories_id' => 'sometimes|exists:categories,id',
+            'language' => 'nullable|string|max:100', // Ajout ici
         ]);
 
         // Mettre à jour la formation

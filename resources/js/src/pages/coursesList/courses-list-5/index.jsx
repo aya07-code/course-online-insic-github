@@ -4,6 +4,7 @@ import FooterOne from "@/components/layout/footers/FooterOne";
 import Header from "@/components/layout/headers/Header";
 import React from "react";
 import MetaComponent from "@/components/common/MetaComponent";
+import CourseSlider from "../../../components/courseSingle/CourseSlider";
 
 const metadata = {
   title:

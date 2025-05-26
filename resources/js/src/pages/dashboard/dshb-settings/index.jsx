@@ -1,6 +1,6 @@
 import Preloader from "@/components/common/Preloader";
 import Settings from "@/components/dashboard/Settings/Settings";
-import Sidebar from "@/components/dashboard/Sidebar";
+import Sidebar from "@/components/dashboard/SidebarA";
 import HeaderDashboard from "@/components/layout/headers/HeaderDashboard";
 import MetaComponent from "@/components/common/MetaComponent";
 

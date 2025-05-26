@@ -12,9 +12,6 @@ export default function DashboardOne() {
         <div className="row pb-50 mb-10">
           <div className="col-auto">
             <h1 className="text-30 lh-12 fw-700">Dashboard</h1>
-            <div className="mt-10">
-              Lorem ipsum dolor sit amet, consectetur.
-            </div>
           </div>
         </div>
 
@@ -25,10 +22,7 @@ export default function DashboardOne() {
                 <div>
                   <div className="lh-1 fw-500">{elm.title}</div>
                   <div className="text-24 lh-1 fw-700 text-dark-1 mt-20">
-                    ${elm.value}
-                  </div>
-                  <div className="lh-1 mt-25">
-                    <span className="text-purple-1">${elm.new}</span> New Sales
+                    {elm.value}
                   </div>
                 </div>
 
@@ -66,9 +60,6 @@ export default function DashboardOne() {
             <div className="rounded-16 bg-white -dark-bg-dark-1 shadow-4 h-100">
               <div className="d-flex justify-between items-center py-20 px-30 border-bottom-light">
                 <h2 className="text-17 lh-1 fw-500">Recent Courses</h2>
-                <a href="#" className="text-14 text-purple-1 underline">
-                  View All
-                </a>
               </div>
               <div className="py-30 px-30">
                 <div className="y-gap-40">
@@ -83,14 +74,6 @@ export default function DashboardOne() {
                       <div className="ml-15">
                         <h4 className="text-15 lh-16 fw-500">{elm.title}</h4>
                         <div className="d-flex items-center x-gap-20 y-gap-10 flex-wrap pt-10">
-                          <div className="d-flex items-center">
-                            <img
-                              className="size-16 object-cover mr-8"
-                              src={elm.authorImg}
-                              alt="icon"
-                            />
-                            <div className="text-14 lh-1">{elm.title}</div>
-                          </div>
                           <div className="d-flex items-center">
                             <i className="icon-document text-16 mr-8"></i>
                             <div className="text-14 lh-1">

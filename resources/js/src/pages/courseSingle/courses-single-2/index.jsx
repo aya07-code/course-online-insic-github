@@ -1,6 +1,4 @@
-import PageLinks from "@/components/common/PageLinks";
 import Preloader from "@/components/common/Preloader";
-
 import CourseDetailsTwo from "@/components/courseSingle/CourseDetailsTwo";
 import CourseSlider from "@/components/courseSingle/CourseSlider";
 import FooterOne from "@/components/layout/footers/FooterOne";
@@ -18,15 +16,14 @@ const metadata = {
 };
 
 export default function CourseSinglePage2() {
-  let params = useParams();
+    const {id} = useParams(); 
   return (
     <div className="main-content  ">
       <MetaComponent meta={metadata} />
       <Preloader />
       <Header />
-      <div className="content-wrapper  js-content-wrapper ">
-        <PageLinks dark={true} />
-        <CourseDetailsTwo id={params.id} />
+      <div className="content-wrapper  js-content-wrappe" style={{paddingTop:"60px"}} >
+        <CourseDetailsTwo id={id}/>
         <CourseSlider />
         <FooterOne />
       </div>

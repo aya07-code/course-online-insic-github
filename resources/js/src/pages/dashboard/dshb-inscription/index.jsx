@@ -1,9 +1,9 @@
 import Preloader from "@/components/common/Preloader";
 import Inscription from "@/components/dashboard/Settings/Inscription";
+import TableInscription from "@/components/dashboard/Settings/TableInscription";
 import Sidebar from "@/components/dashboard/Sidebar";
 import HeaderDashboard from "@/components/layout/headers/HeaderDashboard";
 import MetaComponent from "@/components/common/MetaComponent";
-
 const metadata = {
   title:
     "Dashboard-settings || Insic",
@@ -27,6 +27,7 @@ export default function DshbSettingsPage() {
             </div>
             <Inscription />
           </div>
+          <TableInscription />
         </div>
       </main>
     </div>

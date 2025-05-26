@@ -29,6 +29,8 @@ export default function EditProfileIn() {
          if (response.data.avatar) {
            setPreviewImage(response.data.avatar);
          }
+      setPreviewImage(defaultAvatar);
+      setSelectedImage(null);
       setSuccessMessage("Student registered successfully!");
       setErrorMessage(null);
       setFormData({
@@ -209,7 +211,7 @@ export default function EditProfileIn() {
 
           <div className="col-12">
             <button className="button -md -purple-1 text-white">
-              Register Student
+             Inscription
             </button>
           </div>
         </form>

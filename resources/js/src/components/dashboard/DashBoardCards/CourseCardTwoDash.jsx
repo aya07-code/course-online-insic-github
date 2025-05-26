@@ -36,9 +36,6 @@ export default function CourseCardTwoDash({ data }) {
                   <div key={i} className="icon-star text-9 text-yellow-1"></div>
                 ))}
               </div>
-              <div className="text-13 lh-1 fw-500 ml-10">
-                ({data.ratingCount}))
-              </div>
             </div>
 
             <h3 className="text-17 lh-16 fw-500 mt-10 pr-40 xl:pr-0">
@@ -63,35 +60,7 @@ export default function CourseCardTwoDash({ data }) {
               </div>
 
               <div className="d-flex items-center">
-                <div className="mr-10">
-                  <img src="/assets/img/coursesCards/icons/3.svg" alt="icon" />
-                </div>
-                <div className="text-14 lh-1">{data.level}</div>
-              </div>
-            </div>
-
-            <div className="d-flex y-gap-10 justify-between items-center flex-wrap border-top-light pt-10 mt-10">
-              <div className="d-flex items-center">
-                <img src={data.authorImageSrc} alt="image" />
-                <div className="text-14 lh-1 ml-10">{data.authorName}</div>
-              </div>
-
-              <div className="d-flex items-center">
-                {data.paid ? (
-                  <>
-                    <div className="line-through lh-1 fw-500 mr-10">
-                      ${data.originalPrice}
-                    </div>
-                    <div className="text-18 lh-1 fw-500 text-dark-1">
-                      ${data.discountedPrice}
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div></div>
-                    <div className="text-18 lh-1 fw-500 text-dark-1">Free</div>
-                  </>
-                )}
+                <div className="text-18 lh-1 fw-500 text-dark-1">{data.level}</div>
               </div>
             </div>
           </div>
