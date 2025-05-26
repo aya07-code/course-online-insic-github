@@ -3,7 +3,6 @@ import Preloader from "@/components/common/Preloader";
 import TestimonialsOne from "@/components/common/TestimonialsOne";
 import WhyCourse from "@/components/homes/WhyCourse";
 import FooterOne from "@/components/layout/footers/FooterOne";
-// import HeaderTwo from "@/components/layout/headers/HeaderTwo";
 import Header from "@/components/layout/headers/Header";
 import React from "react";
 import MetaComponent from "@/components/common/MetaComponent";

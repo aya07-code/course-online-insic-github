@@ -74,15 +74,13 @@ export default function LearningSolutions() {
             </div>
           </div>
 
-
-
           <div className="col-lg-6 order-1 order-lg-2">
             <div className="elements-image">
               <div className="elements-image__img1">
                 <img
                   className="js-mouse-move"
                   data-move="40"
-                  src="/assets/img/home-2/learning/3.png"
+                  src="/assets/img/home-2/learning/1.png"
                   alt="image"
                 />
               </div>
@@ -100,13 +98,29 @@ export default function LearningSolutions() {
                 data-move="60"
                 className="elements-image__el1 lg:d-none img-el -w-260 px-20 py-20 d-flex items-center bg-white rounded-8 js-mouse-move"
               >
-                <img src="/assets/img/masthead/1.svg" alt="icon" />
+                <img src="/assets/img/masthead/4.png" alt="icon" />
                 <div className="ml-20">
-                  <div className="text-purple-1 text-16 fw-500 lh-1">
-                  100% Online 
+                  <div className="text-dark-1 text-16 fw-500 lh-1">
+                    Ali Tufan
                   </div>
-                  <div className="mt-3">Start Instantly</div>
-
+                  <div className="mt-3">UX/UI Designer</div>
+                  <div className="d-flex x-gap-5 mt-3">
+                    <div>
+                      <div className="icon-star text-yellow-1 text-11"></div>
+                    </div>
+                    <div>
+                      <div className="icon-star text-yellow-1 text-11"></div>
+                    </div>
+                    <div>
+                      <div className="icon-star text-yellow-1 text-11"></div>
+                    </div>
+                    <div>
+                      <div className="icon-star text-yellow-1 text-11"></div>
+                    </div>
+                    <div>
+                      <div className="icon-star text-yellow-1 text-11"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
