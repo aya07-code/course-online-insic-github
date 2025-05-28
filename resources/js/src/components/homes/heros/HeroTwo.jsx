@@ -112,10 +112,6 @@
 // }
 
 
-
-import { Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -137,18 +133,18 @@ export default function HeroTwo() {
       <div className="swiper-wrapper-two" style={{backgroundColor:"blue",opacity:'.15'}}></div>
       </div>
 
-      <div className="container">
+      <div className="container" >
         <div className="row justify-center text-center">
-          <div className="col-xl-6 col-lg-8" >
+          <div className="col-xl-6 col-lg-8" style={{marginTop:"-100px" ,width:"60%"}}>
             <div
               className="mainSlider__content"
               data-aos="fade-up"
               data-aos-delay="500"
             >
-              <h1 className="mainSlider__title text-white">
+              <h2 className="mainSlider__title text-white" >
                 Your Journey To Succcess Starts Here{" "}
-                <span className="text-purple-1 underline" >Welcome To INSIC</span>
-              </h1>
+                <span className="text-purple-1 underline">Welcome To INSIC</span>
+              </h2>
               <p className="mainSlider__text text-white">
                 More than 500 online courses
               </p>

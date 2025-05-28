@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function SignUpForm() {
-    const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "", // Ajouté
     password: "",
     password_confirmation: "",
   });
@@ -19,11 +20,19 @@ export default function SignUpForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/register", formData);
+      // N'envoyez que les champs attendus par l'API
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        password_confirmation: formData.password_confirmation,
+        phone: formData.phone, // <-- décommentez cette ligne
+      };
+      const response = await axios.post("http://127.0.0.1:8000/api/register", payload);
       console.log("User registered:", response.data);
       setSuccessMessage("Registration successful! Welcome to the platform.");
       setError(null);
-      setFormData({ name: "", email: "", password: "", password_confirmation: "" }); // Reset form
+      setFormData({ name: "", email: "", phone: "", password: "", password_confirmation: "" }); // Reset form
     } catch (err) {
       setError(err.response?.data?.errors || { message: "An error occurred" });
       setSuccessMessage(null);
@@ -74,16 +83,16 @@ export default function SignUpForm() {
                     onChange={handleChange}
                   />
                 </div>
-                                <div className="col-lg-6">
+                <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Phone
                   </label>
                   <input
                     required
-                    type="tel"
-                    name="telephone"
+                    type="text"
+                    name="phone"
                     placeholder="06 00 00 00 00"
-                    value={formData.email}
+                    value={formData.phone}
                     onChange={handleChange}
                   />
                 </div>

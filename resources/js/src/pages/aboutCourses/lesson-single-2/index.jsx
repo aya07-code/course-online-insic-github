@@ -4,6 +4,7 @@ import VideoTwo from "@/components/aboutCourses/lesson/VideoTwo";
 import Preloader from "@/components/common/Preloader";
 import Header from "@/components/layout/headers/Header";
 import MetaComponent from "@/components/common/MetaComponent";
+import HeaderTwo from "@/components/layout/headers/HeaderTwo";
 
 const metadata = {
   title:
@@ -17,8 +18,9 @@ export default function LessonSinglePage2() {
     <div className="main-content  ">
       <MetaComponent meta={metadata} />
       <Preloader />
-      <Header />
-      <div className="content-wrapper  js-content-wrapper overflow-hidden">
+      <HeaderTwo />
+      {/* <Header /> */}
+      <div className="content-wrapper  js-content-wrapper overflow-hidden" style={{ marginTop: "-150px" }}>
         <section className="layout-pt-lg layout-pb-lg lg:pt-40 lg:order-1">
           <div className="container">
             <div className="row justify-start marginCustom ">

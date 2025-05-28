@@ -195,7 +195,7 @@ export default function FormationDetail() {
 
         {/* Liste des chapitres */}
         <div className="table-responsive scroll-sm" style={{ marginTop: "50px" }}>
-          <table className="table bordered-table sm-table mb-0">
+          <table className="table bordered-table sm-table mb-0" style={{ width: "100%" }}>
             <thead>
               <tr>
                 <th scope="col">Titre</th>

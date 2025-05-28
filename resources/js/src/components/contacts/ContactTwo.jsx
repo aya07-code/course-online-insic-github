@@ -1,12 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { locationData } from "@/data/officeLocation";
+import axios from "axios";
+
 export default function ContactTwo() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    comment: "",
+  });
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSuccess("");
+    setError("");
+    try {
+      // Remplacez par la logique d'identification de l'utilisateur si besoin
+      const user_id = null; // ou récupérez l'id utilisateur connecté si besoin
+      await axios.post("/api/messages", {
+        content: form.comment,
+        date: new Date().toISOString(),
+        status: "unread",
+        user_id: user_id,
+        name: form.name,
+        email: form.email,
+      });
+      setSuccess("Message envoyé avec succès !");
+      setForm({ name: "", email: "", comment: "" });
+    } catch (err) {
+      setError("Erreur lors de l'envoi du message.");
+    }
+  };
+
   return (
     <>
-      <section className="page-header -type-4 bg-beige-1" style={{ marginTop: "-50px" }}>
+      <section className="page-header -type-4 bg-beige-1" style={{ marginTop: "-50px" , height: "300px" }}>
         <div className="container">
           <div className="page-header__content">
             <div className="row">
@@ -52,9 +85,22 @@ export default function ContactTwo() {
                   </div>
                 ))}
               </div>
+              {/* Ajout de la carte Google Maps */}
+              <div className="mt-40 rounded-16 overflow-hidden shadow-1" style={{ border: "2px solid #eee" }}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d202.35011902049686!2d-5.840278545607235!3d35.76058835583081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2sma!4v1748270937638!5m2!1sar!2sma"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Maps"
+                ></iframe>
+              </div>
             </div>
 
-            <div className="col-lg-6">
+            <div className="col-lg-6" style={{ marginTop: "127px" }}>
               <div className="px-40 py-40 bg-white border-light shadow-1 rounded-8 contact-form-to-top">
                 <h3 className="text-24 fw-500">Send a Message</h3>
                 <p className="mt-25">
@@ -73,8 +119,10 @@ export default function ContactTwo() {
                     <input
                       required
                       type="text"
-                      name="title"
+                      name="name"
                       placeholder="Name..."
+                      value={form.name}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="col-12">
@@ -83,9 +131,11 @@ export default function ContactTwo() {
                     </label>
                     <input
                       required
-                      type="text"
-                      name="title"
+                      type="email"
+                      name="email"
                       placeholder="Email..."
+                      value={form.email}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="col-12">
@@ -97,8 +147,20 @@ export default function ContactTwo() {
                       placeholder="Message"
                       rows="8"
                       required
+                      value={form.comment}
+                      onChange={handleChange}
                     ></textarea>
                   </div>
+                  {success && (
+                    <div className="col-12">
+                      <p className="text-green-600">{success}</p>
+                    </div>
+                  )}
+                  {error && (
+                    <div className="col-12">
+                      <p className="text-red-600">{error}</p>
+                    </div>
+                  )}
                   <div className="col-12">
                     <button
                       type="submit"

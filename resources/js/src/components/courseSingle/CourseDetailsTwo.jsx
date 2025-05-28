@@ -90,7 +90,13 @@ export default function CourseDetailsTwo({ id }) {
                   </h1>
                 </div>
 
-                <p className=" text-18 col-xl-9 mt-20">{formation.description}</p>
+                <p className=" text-18 col-xl-9 mt-20">{formation.description &&
+                              formation.description.split('\n').map((line, idx) => (
+                                <React.Fragment key={idx}>
+                                  {line}
+                                  <br />
+                                </React.Fragment>
+                              ))}</p>
 
                 <div className="d-flex x-gap-30 y-gap-10 items-center flex-wrap pt-20">
                   <div className="d-flex items-center">
@@ -143,13 +149,13 @@ export default function CourseDetailsTwo({ id }) {
                 </div>
               </div>
 
-              <Overview formation={formation} />
+              <Overview formation={formation} /> 
               <CourseContent formation={formation} />
               <Reviews feedbacks={formation.feedbacks || []} />
             </div>
           </div>
         </div>
-      </section>
+      </section> 
     </div>
   );
 }

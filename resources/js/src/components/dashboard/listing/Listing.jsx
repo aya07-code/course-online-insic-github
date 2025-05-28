@@ -3,7 +3,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faEye } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2'; // Ajout
+import Swal from 'sweetalert2'; // Ajouté
 
 export default function Listing() {
   const [formData, setFormData] = useState({
@@ -67,17 +67,18 @@ export default function Listing() {
       cancelButtonText: 'Annuler'
     });
 
-    if (result.isConfirmed) {
-      try {
-        const token = localStorage.getItem("auth_token");
-        await axios.delete(`/api/formations/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        fetchFormations();
-        Swal.fire('Supprimé !', 'Le cours a été supprimé.', 'success');
-      } catch (err) {
-        Swal.fire('Erreur', "Erreur lors de la suppression.", 'error');
-      }
+    if (!result.isConfirmed) return;
+
+    try {
+      const token = localStorage.getItem("auth_token");
+      await axios.delete(`/api/formations/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      fetchFormations();
+      Swal.fire('Supprimé !', 'La formation a été supprimée.', 'success');
+    } catch (err) {
+      console.error("Error deleting formation:", err);
+      Swal.fire('Erreur', "Erreur lors de la suppression.", 'error');
     }
   };
 

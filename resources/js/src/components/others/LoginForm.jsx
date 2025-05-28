@@ -10,7 +10,11 @@ export default function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/login", formData);
+      const payload = {
+        email: formData.email.trim(),
+        password: formData.password.trim(),
+      };
+      const response = await axios.post("/api/login", payload);
       console.log("User logged in:", response.data);
 
       // Store the token in localStorage
@@ -62,7 +66,7 @@ export default function LoginForm() {
                   </label>
                   <input
                     required
-                    type="text"
+                    type="email"
                     name="email"
                     placeholder="Email"
                     value={formData.email}

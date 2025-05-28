@@ -70,7 +70,7 @@ export default function Reviews({ feedbacks }) {
           <ul className="comments__list mt-30">
             {feedbacks && feedbacks.length > 0 ? (
               feedbacks.map((fb, i) => (
-                <li key={fb.id || i} className="comments__item">
+                <li key={fb.id || i} className="comments__item" >
                   <div className="comments__item-inner md:direction-column">
                     <div className="comments__img mr-20">
                       <div
@@ -94,10 +94,10 @@ export default function Reviews({ feedbacks }) {
                         </div>
                       </div>
                       <h5 className="text-15 fw-500 mt-15">{fb.titre || ""}</h5>
-                      <div className="comments__text mt-10">
-                        <p>{fb.contenu}</p>
+                      <div className="comments__text mt-10" style={{ marginBottom: "5px" }}>
+                        <p style={{ marginBottom: "-50px" }}>{fb.contenu}</p>
                       </div>
-                      {/* Optionnel : boutons "helpful" */}
+                      <hr style={{ margin: "5px 0 0 0", borderTop: "1px solid #eee" }} />
                     </div>
                   </div>
                 </li>

@@ -156,32 +156,8 @@ export default function Students() {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="col-md-6">
-                    <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                      {editingId ? "Nouveau mot de passe" : "Mot de passe"}
-                    </label>
-                    <input
-                      required={!editingId}
-                      type="password"
-                      name="password"
-                      placeholder={editingId ? "Nouveau mot de passe" : "Mot de passe"}
-                      value={form.password}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="col-md-6">
-                    <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                      Confirmer mot de passe
-                    </label>
-                    <input
-                      required={!editingId}
-                      type="password"
-                      name="password_confirmation"
-                      placeholder="Confirmer mot de passe"
-                      value={form.password_confirmation}
-                      onChange={handleChange}
-                    />
-                  </div>
+
+
                   {error && (
                     <div className="col-12">
                       <p className="text-red-500">{error}</p>

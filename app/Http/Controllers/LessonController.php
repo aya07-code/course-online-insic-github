@@ -35,6 +35,7 @@ class LessonController extends Controller
            
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
             'content' => 'required|string',
             'chapitre_id' => 'required|exists:chapitres,id',
             'file' => 'required|file|mimes:pdf,mp4,avi,mov,webm,ogg,jpg,jpeg,png',
@@ -95,6 +96,7 @@ class LessonController extends Controller
 
         $validatedData = $request->validate([
             'title' => 'sometimes|string|max:255',
+            'description' => 'nullable|string',
             'content' => 'sometimes|string',
             'type' => 'sometimes|in:pdf,video,img',
             'chapitre_id' => 'sometimes|exists:chapitres,id',

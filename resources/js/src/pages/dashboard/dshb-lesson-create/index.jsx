@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, useLocation,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash, faArrowLeft, faEye } from '@fortawesome/free-solid-svg-icons';
-import Swal from 'sweetalert2'; // Ajout
+import { faEdit, faTrash, faArrowLeft,faEye} from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2'; // Ajouté
 
 export default function LessonManagement() {
   const { id } = useParams(); // ID du chapitre
@@ -244,7 +244,7 @@ export default function LessonManagement() {
 
         {/* Liste des leçons */}
         <div className="table-responsive scroll-sm" style={{ marginTop: "50px" }}>
-          <table className="table bordered-table sm-table mb-0">
+          <table className="table bordered-table sm-table mb-0" style={{ width: "100%" }}>
             <thead>
               <tr>
                 <th scope="col">Titre</th>

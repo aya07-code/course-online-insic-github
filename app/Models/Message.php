@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     use HasFactory;
-    
+
+    // Ajoutez les champs fillable pour permettre l'insertion de name et email
+    protected $fillable = [
+        'name',
+        'email',
+        'content',
+        'date',
+        'status',
+        'user_id',
+    ];
+
     public function user() { return $this->belongsTo(User::class); }
 }

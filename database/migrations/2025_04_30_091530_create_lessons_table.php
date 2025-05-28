@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('chapitre_id')->constrained()->onDelete('cascade');
             $table->string('title');
+            $table->text('description')->nullable();
             $table->text('content');
             $table->enum('type', ['video', 'pdf', 'img']);
             $table->timestamps();

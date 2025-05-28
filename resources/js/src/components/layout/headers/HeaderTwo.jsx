@@ -2,17 +2,27 @@ import MobileMenu from "../component/MobileMenu";
 import Menu from "../component/Menu";
 
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
 
 export default function HeaderTwo() {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [showHeader, setShowHeader] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const position = window.scrollY;
-      setScrollPosition(position);
+      const currentScrollY = window.scrollY;
+      setScrollPosition(currentScrollY);
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 40) {
+        // Scrolling down
+        setShowHeader(false);
+      } else {
+        // Scrolling up
+        setShowHeader(true);
+      }
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -23,11 +33,17 @@ export default function HeaderTwo() {
   }, []);
   return (
     <header
-      className={`header -type-5 js-header ${
-        scrollPosition > 40 ? "bg-dark-1" : ""
-      } `}
+      className={`header -type-5 js-header bg-dark-1 ${
+        showHeader ? "" : "header--hidden"
+      }`}
+      style={{
+        transition: "transform 0.3s ease",
+        transform: showHeader ? "translateY(0)" : "translateY(-100%)",
+        position: "sticky",
+        top: 0,
+        zIndex: 1000,
+      }}
     >
-
       <div className="container py-10">
         <div className="row justify-between items-center">
           <div className="col-auto">

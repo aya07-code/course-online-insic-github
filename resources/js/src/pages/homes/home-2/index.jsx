@@ -22,7 +22,7 @@ export default function HomePage2() {
       <MetaComponent meta={metadata} />
       <Preloader />
       <HeaderTwo />
-      <div className="main-content overflow-hidden   ">
+      <div className="main-content overflow-hidden " style={{ marginTop: "-50px" }}>
          <HeroTwo />
         <CoursesThree />
         <FindLearningPath />
